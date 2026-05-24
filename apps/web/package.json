@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite dev --port 3000",
+    "dev": "vite dev --port 3000 --host",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint",
@@ -12,12 +12,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@jenn.fyi/ui": "workspace:*",
     "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-router": "^1.132.0",
     "@tanstack/react-start": "^1.132.0",
     "@tanstack/router-plugin": "^1.132.0",
-    "@workspace/ui": "workspace:*",
     "nitro": "latest",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

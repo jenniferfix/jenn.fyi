@@ -1,6 +1,6 @@
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
-
-import appCss from "@workspace/ui/globals.css?url"
+import { Toaster } from "@jenn.fyi/ui/components/sonner";
+import appCss from "@jenn.fyi/ui/globals.css?url";
+import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -30,7 +30,7 @@ export const Route = createRootRoute({
     </main>
   ),
   shellComponent: RootDocument,
-})
+});
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -38,10 +38,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="dark">
         {children}
+        <Toaster />
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

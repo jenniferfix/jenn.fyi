@@ -11,11 +11,11 @@
   },
   "iconLibrary": "phosphor",
   "aliases": {
-    "components": "@workspace/ui/components",
-    "utils": "@workspace/ui/lib/utils",
-    "hooks": "@workspace/ui/hooks",
-    "lib": "@workspace/ui/lib",
-    "ui": "@workspace/ui/components"
+    "components": "@jenn.fyi/ui/components",
+    "utils": "@jenn.fyi/ui/lib/utils",
+    "hooks": "@jenn.fyi/ui/hooks",
+    "lib": "@jenn.fyi/ui/lib",
+    "ui": "@jenn.fyi/ui/components"
   },
   "rtl": false,
   "menuColor": "default",
