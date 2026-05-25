@@ -1,6 +1,7 @@
 import { Toaster } from "@jenn.fyi/ui/components/sonner";
 import appCss from "@jenn.fyi/ui/globals.css?url";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { ContentContextProvider } from "@/components/ContentContext";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -39,8 +40,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="dark">
-        {children}
-        <Toaster />
+        <ContentContextProvider>
+          {children}
+          <Toaster />
+        </ContentContextProvider>
         <Scripts />
       </body>
     </html>

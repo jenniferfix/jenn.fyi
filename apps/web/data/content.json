@@ -1,0 +1,98 @@
+{
+  "socials": [
+    {
+      "name": "github",
+      "url": "https://github.com/jenniferfix"
+    },
+    {
+      "name": "x",
+      "url": "https://x.com/jenn_00101010"
+    },
+    {
+      "name": "bluesky",
+      "url": "https://bsky.app/profile/jenn.fyi"
+    },
+    {
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/jennifer-fix/"
+    }
+  ],
+  "stackBadges": [
+    {
+      "label": "HTML",
+      "url": "https://html.spec.whatwg.org/multipage/"
+    },
+    {
+      "label": "CSS",
+      "url": "https://www.w3.org/Style/CSS/Overview.en.html"
+    },
+    {
+      "label": "Javascript",
+      "url": ""
+    },
+    {
+      "label": "Typescript",
+      "url": "https://www.typescriptlang.org/"
+    },
+    {
+      "label": "React",
+      "url": "https://react.dev/"
+    },
+    {
+      "label": "TailwindCSS",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "label": "Tanstack Start",
+      "url": "https://tanstack.com/"
+    },
+    {
+      "label": "Node.js",
+      "url": "https://nodejs.org/"
+    },
+    {
+      "label": "Frontend",
+      "url": ""
+    },
+    {
+      "label": "Fullstack",
+      "url": ""
+    },
+    {
+      "label": "Next.js",
+      "url": ""
+    },
+    {
+      "label": "Git",
+      "url": ""
+    },
+    {
+      "label": "Arch",
+      "url": "https://archlinux.org/"
+    },
+    {
+      "label": "Neovim",
+      "url": "https://neovim.io/"
+    },
+    {
+      "label": "Ghostty",
+      "url": "https://ghostty.org/"
+    },
+    {
+      "label": "Electron",
+      "url": ""
+    },
+    {
+      "label": "Postgres",
+      "url": ""
+    },
+    {
+      "label": "Linux",
+      "url": ""
+    },
+    {
+      "label": "Automation",
+      "url": ""
+    }
+  ]
+}
