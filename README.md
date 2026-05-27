@@ -1,21 +1,24 @@
-# shadcn/ui monorepo template
+# jenn.fyi
 
-This is a TanStack Start monorepo template with shadcn/ui.
+Jennifer's home on the internet.
 
-## Adding components
+## Introduction
 
-To add components to your app, run the following command at the root of your `web` app:
+My name is Jennifer. Jenn is good too :) I have a lot of interests and love being a generalist.
 
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
-```
+I am a problem solver and innovator. I am always looking for ways to make something more efficient.
 
-This will place the ui components in the `packages/ui/src/components` directory.
+I am a self-taught programmer. I am currently working primarily with Typescript/React.
 
-## Using components
+I am a Journeyperson Electrician with the Red Seal Endorsement (licensed to work across Canada<sup>\*</sup>)
 
-To use the components in your app, import them from the `ui` package.
+## Preferred Tech stack
 
-```tsx
-import { Button } from "@workspace/ui/components/button";
-```
+- Typescript/Javascript
+- React
+- Tanstack Start/Router
+- Tailwind
+- Shad-cn
+- Postgres
+- Arch Linux
+- Neovim
