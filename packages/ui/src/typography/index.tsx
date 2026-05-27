@@ -44,7 +44,7 @@ export function H3({
   return (
     <h3
       className={cn(
-        "scroll-m-20 text-2xl font-semibold tracking-tight mt-6 mb-3",
+        "scroll-m-20 text-2xl font-semibold tracking-tight mt-5 mb-2",
         className,
       )}
       {...props}
@@ -114,11 +114,26 @@ export function P({
 }: React.ComponentProps<"p">) {
   return (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-4", className)}
       {...props}
     >
       {children}
     </p>
+  );
+}
+
+export function Ol({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"ol">) {
+  return (
+    <ul
+      className={cn("my-4 m-6 list-decimal [&>li}:mt-2", className)}
+      {...props}
+    >
+      {children}
+    </ul>
   );
 }
 
@@ -128,7 +143,7 @@ export function Ul({
   ...props
 }: React.ComponentProps<"ul">) {
   return (
-    <ul className={cn("", className)} {...props}>
+    <ul className={cn("my-4 ml-6 list-disc [&>li]:mt-2", className)} {...props}>
       {children}
     </ul>
   );
@@ -138,11 +153,11 @@ export function Li({
   children,
   className,
   ...props
-}: React.ComponentProps<"p">) {
+}: React.ComponentProps<"li">) {
   return (
-    <p className={cn("", className)} {...props}>
+    <li className={cn("", className)} {...props}>
       {children}
-    </p>
+    </li>
   );
 }
 
@@ -218,5 +233,25 @@ export function Strong({
     <code className={cn("font-bold", className)} {...props}>
       {children}
     </code>
+  );
+}
+
+export function Pre({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"pre">) {
+  return (
+    <pre
+      className={cn(
+        "overflox-x-auto bg-muted/50 text-sm font-semibold leading-6 w-full",
+        className,
+      )}
+      {...props}
+    >
+      <code className="inline-block min-w-full font-code text-muted-foreground ">
+        {children}
+      </code>
+    </pre>
   );
 }

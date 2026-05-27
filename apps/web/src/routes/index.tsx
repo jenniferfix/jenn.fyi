@@ -9,6 +9,7 @@ import { Portfolio } from "@/components/Portfolio";
 import { Resume } from "@/components/Resume";
 import { Socials } from "@/components/Socials";
 import { TechStack } from "@/components/TechStack";
+import { CodeSample } from "../components/CodeSample";
 
 export const Route = createFileRoute("/")({
 	component: RouteComponent,
@@ -21,6 +22,7 @@ function RouteComponent() {
 				<Hero />
 				<Resume />
 				<Portfolio />
+				<CodeSample />
 				<Bio />
 				<TechStack />
 				<Socials />
