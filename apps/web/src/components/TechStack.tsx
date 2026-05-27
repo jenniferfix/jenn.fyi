@@ -34,7 +34,7 @@ export const TechStack = () => {
   const { stackBadges } = useContent();
 
   return (
-    <div className="flex flex-wrap gap-0.5">
+    <section className="snap-start flex flex-wrap gap-0.5">
       {stackBadges.map((badge) => (
         <StackBadge
           className={cn("cursor-default")}
@@ -43,6 +43,6 @@ export const TechStack = () => {
           url={badge.url}
         />
       ))}
-    </div>
+    </section>
   );
 };

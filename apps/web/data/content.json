@@ -1,4 +1,39 @@
 {
+  "projects" : [
+    {
+      "name": "Emoji Invaders",
+      "description":
+        "One of my first projects after learning Javascript. I had initially wanted to do it in react, but decided to see if I could move the elements around in the DOM myself. I was a learning experience in finding out what attributes can be changed an animated in a performant way.",
+      "github": "https://github.com/jenniferfix/emoji-invaders-vanillajs",
+      "demo": "",
+      "screenshots": [""],
+      "screenshotDescriptions":[""]
+    },
+    {
+      "name": "Calgary Non-Binary and Transgender Society",
+      "description":
+        "Built for a local group. Uses Next.js, Sentry.io for content management. No longer online as group is gone.",
+      "github": "https://github.com/Calgary-NBTS/cnbts-web",
+      "demo": "",
+      "screenshots": [""],
+      "screenshotDescriptions":[""]
+    },
+    {
+      "name": "Conveyor Jam/Fault Display",
+      "description": "",
+      "github": "https://github.com/jenniferfix/singulator-jams",
+      "screenshots": [""],
+        "screenshotDescriptions":[""]
+    },
+    {
+      "name": "The Feud",
+      "description": "",
+      "github": "https://github.com/jenniferfix/thefeud",
+      "demo": "",
+      "screenshots": [""],
+      "screenshotDescriptions":[""]
+    }
+  ],
   "socials": [
     {
       "name": "github",
