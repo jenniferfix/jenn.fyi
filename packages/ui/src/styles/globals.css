@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/space-grotesk";
 
 @custom-variant dark (&:is(.dark *));
-@source "../../../apps/**/*.{ts,tsx}";
+@source "../../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
 @theme inline {
@@ -49,6 +51,7 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
     --font-sans: 'Space Grotesk Variable', sans-serif;
+  --font-code: 'Fira Code', monospace;
 }
 
 :root {
@@ -84,6 +87,11 @@
     --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
     --sidebar-border: oklch(0.92 0.004 286.32);
     --sidebar-ring: oklch(0.705 0.015 286.067);
+  --rainbow-text:
+    135deg, #cc0000 0%, #cc0000 13.67%, #eea500 19.67%, #eea500 30.33%,
+    #dddd00 36.33%, #dddd00 47%, green 53%, green 63.67%, blue 69.67%,
+    blue 79.33%, violet 87.33%, violet 100%;
+  --glow: 270 100% 85%;
 }
 
 .dark {
@@ -118,6 +126,11 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.552 0.016 285.938);
+  --rainbow-text:
+    135deg, red 0%, red 13.67%, orange 19.67%, orange 30.33%, yellow 36.33%,
+    yellow 47%, green 53%, green 63.67%, blue 69.67%, blue 79.33%,
+    violet 87.33%, violet 100%;
+  --glow: 270 100% 20%;
 }
 
 @layer base {
@@ -126,5 +139,67 @@
     }
   body {
     @apply bg-background text-foreground;
+     letter-spacing: var(--tracking-tight);
+    height: 100vh;
+    overflow: hidden;
+    background-attachment: scroll;
+    background-image: radial-gradient(
+      ellipse,
+      hsl(var(--glow)) 10%,
+      var(--background) 90%
+    );
     }
+}
+
+.glow {
+  /*background-image: radial-gradient(*/
+  /*  ellipse,*/
+  /*  hsl(var(--glow)) 10%,*/
+  /*  rgba(0, 0, 0, 0)*/
+  /*);*/
+}
+
+.rainbowtext {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-ctp-red) 0%,
+    var(--color-ctp-red) 12%,
+    var(--color-ctp-peach) 17%,
+    var(--color-ctp-peach) 28%,
+    rgb(var(--color-ctp-yellow)) 33%,
+    rgb(var(--color-ctp-yellow)) 45%,
+    rgb(var(--color-ctp-green)) 50%,
+    rgb(var(--color-ctp-green)) 61%,
+    rgb(var(--color-ctp-blue)) 66%,
+    rgb(var(--color-ctp-blue)) 78%,
+    rgb(var(--color-ctp-mauve)) 83%,
+    rgb(var(--color-ctp-mauve)) 90%
+  );
+  background-image: linear-gradient(var(--rainbow-text));
+  color: transparent;
+  background-clip: text;
+  /*background-size: 500% 500%;*/
+  /*animation: rainbow-move 180s linear infinite;*/
+}
+
+@keyframes rainbow-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.menufade {
+  /*background-image: linear-gradient(*/
+  /*  90deg,*/
+  /*  rgba(var(--ctp-blue), 1),*/
+  /*  rgba(var(--ctp-base), 1)*/
+  /*);*/
+  /*color: transparent;*/
+  /*background-clip: text;*/
 }

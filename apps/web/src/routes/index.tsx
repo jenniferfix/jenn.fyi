@@ -1,13 +1,33 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { useCallback, useMemo } from "react";
+import { z } from "zod";
+import { Bio } from "@/components/Bio";
+import { Hero } from "@/components/Hero";
+import { MailForm } from "@/components/MailForm";
+import { More } from "@/components/More";
+import { Portfolio } from "@/components/Portfolio";
+import { Resume } from "@/components/Resume";
+import { Socials } from "@/components/Socials";
+import { TechStack } from "@/components/TechStack";
+import { CodeSample } from "../components/CodeSample";
 
 export const Route = createFileRoute("/")({
-  component: RouteComponent,
+	component: RouteComponent,
 });
 
 function RouteComponent() {
-  return (
-    <div className="">
-      <div>Hi</div>
-    </div>
-  );
+	return (
+		<main id="main">
+			<div className="overflow-x-clip snap-y snap-mandatory overflow-y-auto h-screen">
+				<Hero />
+				<Resume />
+				<Portfolio />
+				<CodeSample />
+				<Bio />
+				<TechStack />
+				<Socials />
+				<More />
+			</div>
+		</main>
+	);
 }
