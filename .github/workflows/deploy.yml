@@ -48,6 +48,9 @@ jobs:
             set -e
             APP_DIR="/home/deploy/code/jenn.fyi"
             IMAGE="${{ env.IMAGE_NAME }}:${{ github.sha }}"
+            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
+            TURNSTILE_SECRET_KEY=${{ secrets.TURN }}
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
             mkdir -p "$APP_DIR"
             cd "$APP_DIR"
             touch .env
@@ -70,9 +73,9 @@ jobs:
 
 
             cat > .env <<EOF
-            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
-            TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
-            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            VITE_TURNSTILE_SITE_KEY=$VITE_TURNSTILE_SITE_KEY
+            TURNSTILE_SECRET_KEY=$TURNSTILE_SECRET_KEY
+            RESEND_API_KEY=$RESEND_API_KEY
             IMAGE=$IMAGE
             EOF
 
