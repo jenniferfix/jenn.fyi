@@ -39,7 +39,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Deploy to Heztner
-        uses: appleboy/ssh-action@1.0.3
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.DEPLOY_IP }}
           username: ${{ secrets.DEPLOY_USER }}
