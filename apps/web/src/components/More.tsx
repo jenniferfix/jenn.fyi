@@ -34,8 +34,6 @@ export const More = ({ visible = true }: { visible?: boolean }) => {
 		};
 	}, []);
 
-	console.log("more", show, scrollPos);
-
 	return (
 		<div
 			data-state={visible ? "visible" : "hidden"}
