@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "start":"node .output/server/index.mjs"
   },
   "dependencies": {
     "@jenn.fyi/ui": "workspace:*",

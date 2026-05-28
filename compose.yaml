@@ -13,7 +13,7 @@ services:
       # DATABASE_URL: ${DATABASE_URL}
       # SESSION_SECRET: ${SESSION_SECRET}
     env_file:
-      - .env.production
+      - .env.staging
     networks:
       - app_net
 
