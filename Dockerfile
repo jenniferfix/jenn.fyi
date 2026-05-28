@@ -13,8 +13,7 @@ FROM base AS builder
 COPY --from=deps /pnpm/store /pnpm/store
 COPY . .
 RUN pnpm install
-ARG APP_FILTER=@jenn.fyi/web
-RUN pnpm --filter ${APP_FILTER}... build
+RUN pnpm build
 FROM node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
