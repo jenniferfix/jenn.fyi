@@ -1,19 +1,13 @@
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        APP_FILTER: "@jenn.fyi/web"
+    image: ${IMAGE}
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
       PORT: 3000
-      # DATABASE_URL: ${DATABASE_URL}
-      # SESSION_SECRET: ${SESSION_SECRET}
-    env_file:
-      - .env.staging
     networks:
       - app_net
 
