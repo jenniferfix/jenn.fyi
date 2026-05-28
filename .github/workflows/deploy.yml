@@ -43,7 +43,7 @@ jobs:
         with:
           host: ${{ secrets.DEPLOY_IP }}
           username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ CATTY_JENNFYI }}
+          key: ${{ secrets.CATTY_JENNFYI }}
           script: |
             set -e
             APP_DIR="/home/deploy/code/jennfyi"
