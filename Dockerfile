@@ -10,6 +10,14 @@ FROM base AS deps
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
 RUN pnpm fetch --prod=false
 FROM base AS builder
+
+ARG VITE_TURNSTILE_SITE_KEY
+ENV VITE_TURNSTILE_SITE_KEY=$VITE_TURNSTILE_SITE_KEY
+ARG TURNSTILE_SECRET_KEY
+ENV TURNSTILE_SECRET_KEY=$TURNSTILE_SECRET_KEY
+ARG RESEND_API_KEY
+ENV RESEND_API_KEY=$RESEND_API_KEY
+
 COPY --from=deps /pnpm/store /pnpm/store
 COPY . .
 RUN pnpm install

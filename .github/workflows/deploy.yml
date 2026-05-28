@@ -37,6 +37,10 @@ jobs:
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args: |
+            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
+            TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
 
       - name: Deploy to Heztner
         uses: appleboy/ssh-action@v1
@@ -48,9 +52,6 @@ jobs:
             set -e
             APP_DIR="/home/deploy/code/jenn.fyi"
             IMAGE="${{ env.IMAGE_NAME }}:${{ github.sha }}"
-            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
-            TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
-            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
             mkdir -p "$APP_DIR"
             cd "$APP_DIR"
             touch .env
