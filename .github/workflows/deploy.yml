@@ -57,12 +57,12 @@ jobs:
                 image: ${IMAGE}
                 restart: unless-stopped
                 ports:
-                  - "3000:3000"
+                  - "4242:4242"
                 env_file:
                   - .env
                 environment:
                   NODE_ENV: production
-                  PORT: 3000
+                  PORT: 4242
                   HOST: 0.0.0.0
             YAML
 
