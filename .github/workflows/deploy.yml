@@ -74,6 +74,6 @@ jobs:
               -u "${{ vars.GHCR_USERNAME }}" \
               --password-stdin
 
-            docker compose pull ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            docker compose pull web
             docker compose up -d --remove-orphans
             docker image prune -f
