@@ -33,7 +33,6 @@ jobs:
           file: ./apps/web/Dockerfile
           push: true
           tags: |
-            ${{ vars.IMAGE_NAME }}:latest
             ${{ vars.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
