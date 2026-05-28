@@ -30,9 +30,10 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./apps/web/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: |
+            ${{ vars.IMAGE_NAME }}:latest
             ${{ vars.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
