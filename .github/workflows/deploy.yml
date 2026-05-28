@@ -50,8 +50,8 @@ jobs:
             IMAGE="${{ vars.IMAGE_NAME }}:${{ github.sha }}"
             mkdir -p "$APP_DIR"
             cd "$APP_DIR"
-            touch .app.env
-            cat > docker-compose.yml <<'YAML'
+            touch .env
+            cat > compose.yaml <<'YAML'
             services:
               web:
                 image: ${IMAGE}
