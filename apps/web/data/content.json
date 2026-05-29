@@ -1,133 +1,131 @@
 {
-  "projects" : [
-    {
-      "name": "Emoji Invaders",
-      "description":
-        "One of my first projects after learning Javascript. I had initially wanted to do it in react, but decided to see if I could move the elements around in the DOM myself. I was a learning experience in finding out what attributes can be changed an animated in a performant way.",
-      "github": "https://github.com/jenniferfix/emoji-invaders-vanillajs",
-      "demo": "",
-      "screenshots": [""],
-      "screenshotDescriptions":[""]
-    },
-    {
-      "name": "Calgary Non-Binary and Transgender Society",
-      "description":
-        "Built for a local group. Uses Next.js, Sentry.io for content management. No longer online as group is gone.",
-      "github": "https://github.com/Calgary-NBTS/cnbts-web",
-      "demo": "",
-      "screenshots": [""],
-      "screenshotDescriptions":[""]
-    },
-    {
-      "name": "Conveyor Jam/Fault Display",
-      "description": "",
-      "github": "https://github.com/jenniferfix/singulator-jams",
-      "screenshots": [""],
-        "screenshotDescriptions":[""]
-    },
-    {
-      "name": "The Feud",
-      "description": "",
-      "github": "https://github.com/jenniferfix/thefeud",
-      "demo": "",
-      "screenshots": [""],
-      "screenshotDescriptions":[""]
-    }
-  ],
-  "socials": [
-    {
-      "name": "github",
-      "url": "https://github.com/jenniferfix"
-    },
-    {
-      "name": "x",
-      "url": "https://x.com/jenn_00101010"
-    },
-    {
-      "name": "bluesky",
-      "url": "https://bsky.app/profile/jenn.fyi"
-    },
-    {
-      "name": "linkedin",
-      "url": "https://www.linkedin.com/in/jennifer-fix/"
-    }
-  ],
-  "stackBadges": [
-    {
-      "label": "HTML",
-      "url": "https://html.spec.whatwg.org/multipage/"
-    },
-    {
-      "label": "CSS",
-      "url": "https://www.w3.org/Style/CSS/Overview.en.html"
-    },
-    {
-      "label": "Javascript",
-      "url": ""
-    },
-    {
-      "label": "Typescript",
-      "url": "https://www.typescriptlang.org/"
-    },
-    {
-      "label": "React",
-      "url": "https://react.dev/"
-    },
-    {
-      "label": "TailwindCSS",
-      "url": "https://tailwindcss.com/"
-    },
-    {
-      "label": "Tanstack Start",
-      "url": "https://tanstack.com/"
-    },
-    {
-      "label": "Node.js",
-      "url": "https://nodejs.org/"
-    },
-    {
-      "label": "Frontend",
-      "url": ""
-    },
-    {
-      "label": "Fullstack",
-      "url": ""
-    },
-    {
-      "label": "Next.js",
-      "url": ""
-    },
-    {
-      "label": "Git",
-      "url": ""
-    },
-    {
-      "label": "Arch",
-      "url": "https://archlinux.org/"
-    },
-    {
-      "label": "Neovim",
-      "url": "https://neovim.io/"
-    },
-    {
-      "label": "Ghostty",
-      "url": "https://ghostty.org/"
-    },
-    {
-      "label": "Electron",
-      "url": ""
-    },
-    {
-      "label": "Postgres",
-      "url": ""
-    },
-    {
-      "label": "Linux",
-      "url": ""
-    },
-    {
-      "label": "Automation",
-      "url": ""
-    }
-  ]
+	"projects": [
+		{
+			"name": "Emoji Invaders",
+			"description": "One of my first projects after learning Javascript. I had initially wanted to do it in react, but decided to see if I could move the elements around in the DOM myself. I was a learning experience in finding out what attributes can be changed an animated in a performant way.",
+			"github": "https://github.com/jenniferfix/emoji-invaders-vanillajs",
+			"demo": "",
+			"screenshots": [""],
+			"screenshotDescriptions": [""]
+		},
+		{
+			"name": "Calgary Non-Binary and Transgender Society",
+			"description": "Built for a local group. Uses Next.js, Sentry.io for content management. No longer online as group is gone.",
+			"github": "https://github.com/Calgary-NBTS/cnbts-web",
+			"demo": "",
+			"screenshots": [""],
+			"screenshotDescriptions": [""]
+		},
+		{
+			"name": "Conveyor Jam/Fault Display",
+			"description": "",
+			"github": "https://github.com/jenniferfix/singulator-jams",
+			"screenshots": [""],
+			"screenshotDescriptions": [""]
+		},
+		{
+			"name": "The Feud",
+			"description": "",
+			"github": "https://github.com/jenniferfix/thefeud",
+			"demo": "",
+			"screenshots": [""],
+			"screenshotDescriptions": [""]
+		}
+	],
+	"socials": [
+		{
+			"name": "github",
+			"url": "https://github.com/jenniferfix"
+		},
+		{
+			"name": "x",
+			"url": "https://x.com/jenn_00101010"
+		},
+		{
+			"name": "bluesky",
+			"url": "https://bsky.app/profile/jenn.fyi"
+		},
+		{
+			"name": "linkedin",
+			"url": "https://www.linkedin.com/in/jennifer-fix/"
+		}
+	],
+	"stackBadges": [
+		{
+			"label": "HTML",
+			"url": "https://html.spec.whatwg.org/multipage/"
+		},
+		{
+			"label": "CSS",
+			"url": "https://www.w3.org/Style/CSS/Overview.en.html"
+		},
+		{
+			"label": "Javascript",
+			"url": ""
+		},
+		{
+			"label": "Typescript",
+			"url": "https://www.typescriptlang.org/"
+		},
+		{
+			"label": "React",
+			"url": "https://react.dev/"
+		},
+		{
+			"label": "TailwindCSS",
+			"url": "https://tailwindcss.com/"
+		},
+		{
+			"label": "Tanstack Start",
+			"url": "https://tanstack.com/"
+		},
+		{
+			"label": "Node.js",
+			"url": "https://nodejs.org/"
+		},
+		{
+			"label": "Frontend",
+			"url": ""
+		},
+		{
+			"label": "Fullstack",
+			"url": ""
+		},
+		{
+			"label": "Next.js",
+			"url": ""
+		},
+		{
+			"label": "Git",
+			"url": ""
+		},
+		{
+			"label": "Arch",
+			"url": "https://archlinux.org/"
+		},
+		{
+			"label": "Neovim",
+			"url": "https://neovim.io/"
+		},
+		{
+			"label": "Ghostty",
+			"url": "https://ghostty.org/"
+		},
+		{
+			"label": "Electron",
+			"url": ""
+		},
+		{
+			"label": "Postgres",
+			"url": ""
+		},
+		{
+			"label": "Linux",
+			"url": ""
+		},
+		{
+			"label": "Automation",
+			"url": ""
+		}
+	]
 }
