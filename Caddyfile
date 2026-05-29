@@ -1,3 +1,5 @@
+catty
+www.jenn.fyi
 jenn.fyi {
   encode zstd gzip
   reverse_proxy web:3000
