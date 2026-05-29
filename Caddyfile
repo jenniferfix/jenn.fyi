@@ -1,8 +1,12 @@
+{
+	jenn_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+}
+
 www.jenn.fyi {
-  redir https://jenn.fyi{uri} permanent
+	redir https://jenn.fyi{uri} permanent
 }
 
 jenn.fyi {
-  encode zstd gzip
-  reverse_proxy web:3000
+	encode zstd gzip
+	reverse_proxy web:3000
 }

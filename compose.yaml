@@ -2,20 +2,22 @@ services:
   web:
     image: ${IMAGE}
     restart: unless-stopped
-    env_file:
-      - .env
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
       PORT: 3000
+      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
+      RESEND_API_KEY: ${RESEND_API_KEY}
     networks:
       - app_net
 
   caddy:
-    image: caddy:2-alpine
+    image: ${CADDY_IMAGE}
     restart: unless-stopped
     depends_on:
       - web
+    environment:
+      CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN}
     ports:
       - "80:80"
       - "443:443"
