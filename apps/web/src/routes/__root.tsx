@@ -1,5 +1,4 @@
 import { Toaster } from "@jenn.fyi/ui/components/sonner";
-import appCss from "@jenn.fyi/ui/globals.css?url";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
@@ -7,6 +6,7 @@ import FloatingTheme from "@/components/FloatingTheme";
 import { MailForm } from "@/components/MailForm";
 import { ThemeProvider } from "@/components/theme-provider";
 import { homeSearchParams } from "@/lib/schema";
+import appCss from "../globals.css?url";
 
 export const Route = createRootRoute({
 	validateSearch: homeSearchParams,

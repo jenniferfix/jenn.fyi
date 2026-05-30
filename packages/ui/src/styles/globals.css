@@ -129,7 +129,7 @@
 		135deg, red 0%, red 13.67%, orange 19.67%, orange 30.33%, yellow 36.33%,
 		yellow 47%, green 53%, green 63.67%, blue 69.67%, blue 79.33%,
 		violet 87.33%, violet 100%;
-	--glow: 270 100% 20%;
+	--glow: 270 100% 10%;
 }
 
 @layer base {
@@ -159,21 +159,21 @@
 }
 
 .rainbowtext {
-	background-image: linear-gradient(
-		135deg,
-		var(--color-ctp-red) 0%,
-		var(--color-ctp-red) 12%,
-		var(--color-ctp-peach) 17%,
-		var(--color-ctp-peach) 28%,
-		rgb(var(--color-ctp-yellow)) 33%,
-		rgb(var(--color-ctp-yellow)) 45%,
-		rgb(var(--color-ctp-green)) 50%,
-		rgb(var(--color-ctp-green)) 61%,
-		rgb(var(--color-ctp-blue)) 66%,
-		rgb(var(--color-ctp-blue)) 78%,
-		rgb(var(--color-ctp-mauve)) 83%,
-		rgb(var(--color-ctp-mauve)) 90%
-	);
+	/* background-image: linear-gradient( */
+	/* 	135deg, */
+	/* 	var(--color-ctp-red) 0%, */
+	/* 	var(--color-ctp-red) 12%, */
+	/* 	var(--color-ctp-peach) 17%, */
+	/* 	var(--color-ctp-peach) 28%, */
+	/* 	rgb(var(--color-ctp-yellow)) 33%, */
+	/* 	rgb(var(--color-ctp-yellow)) 45%, */
+	/* 	rgb(var(--color-ctp-green)) 50%, */
+	/* 	rgb(var(--color-ctp-green)) 61%, */
+	/* 	rgb(var(--color-ctp-blue)) 66%, */
+	/* 	rgb(var(--color-ctp-blue)) 78%, */
+	/* 	rgb(var(--color-ctp-mauve)) 83%, */
+	/* 	rgb(var(--color-ctp-mauve)) 90% */
+	/* ); */
 	background-image: linear-gradient(var(--rainbow-text));
 	color: transparent;
 	background-clip: text;
