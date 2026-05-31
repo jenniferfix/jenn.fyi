@@ -19,6 +19,7 @@ export const More = ({ visible = true }: { visible?: boolean }) => {
 		const handleScroll = () => {
 			const mainElement = document.getElementById("main");
 			if (mainElement) {
+				console.log("setting", mainElement.scrollTop);
 				setScrollPos(mainElement.scrollTop);
 			}
 		};

@@ -129,7 +129,7 @@ export function Ol({
 }: React.ComponentProps<"ol">) {
 	return (
 		<ul
-			className={cn("my-4 m-6 list-decimal [&>li}:mt-2", className)}
+			className={cn("pl-6 list-decimal first:[&>li}:mt-3", className)}
 			{...props}
 		>
 			{children}
@@ -143,7 +143,10 @@ export function Ul({
 	...props
 }: React.ComponentProps<"ul">) {
 	return (
-		<ul className={cn("my-4 ml-6 list-disc [&>li]:mt-2", className)} {...props}>
+		<ul
+			className={cn("pl-6 list-disc first:[&>li]:mt-3", className)}
+			{...props}
+		>
 			{children}
 		</ul>
 	);
@@ -194,24 +197,6 @@ export function Anchor({
 	);
 }
 
-export function InlineCode({
-	children,
-	className,
-	...props
-}: React.ComponentProps<"code">) {
-	return (
-		<code
-			className={cn(
-				"relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-code text-sm font-semibold",
-				className,
-			)}
-			{...props}
-		>
-			{children}
-		</code>
-	);
-}
-
 export function Em({
 	children,
 	className,
@@ -244,14 +229,30 @@ export function Pre({
 	return (
 		<pre
 			className={cn(
-				"overflox-x-auto bg-muted/50 text-sm font-semibold leading-6 w-full",
+				"overflow-x-auto bg-muted/60 text-sm font-semibold leading-6 w-full pl-6 pr-4 py-3 mt-4 rounded-lg [&_code]:bg-transparent [&_code]:p-0",
 				className,
 			)}
 			{...props}
 		>
-			<code className="inline-block min-w-full font-code text-muted-foreground ">
-				{children}
-			</code>
+			{children}
 		</pre>
+	);
+}
+
+export function InlineCode({
+	children,
+	className,
+	...props
+}: React.ComponentProps<"code">) {
+	return (
+		<code
+			className={cn(
+				"relative rounded bg-muted/60 px-2 py-[0.2rem] font-code text-sm font-semibold ",
+				className,
+			)}
+			{...props}
+		>
+			{children}
+		</code>
 	);
 }

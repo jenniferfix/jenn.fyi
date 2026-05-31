@@ -15,7 +15,6 @@ export const JenniferAvatar = ({
 }: React.ComponentProps<"img">) => {
 	return (
 		<img
-			loading="eager"
 			src="/images/jennifer_250.webp"
 			alt="Headshot of Jennifer"
 			srcSet="/images/jennifer_150.webp 150w, /images/jennifer_250.webp 250w, /images/jennifer_400.webp 400w, /images/jennifer_600.webp 600w"

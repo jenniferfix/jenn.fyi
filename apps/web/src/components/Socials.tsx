@@ -5,7 +5,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { useContent } from "./ContentContext";
 import { MailForm } from "./MailForm";
 
-const iconClassName = "size-10";
+const iconClassName = "size-9 sm:size-10";
 
 const icons = {
 	github: <GithubLogoIcon className={iconClassName} />,
@@ -40,7 +40,7 @@ export const Socials = () => {
 				size="icon-lg"
 				variant="ghost"
 				aria-label="Email"
-				className="size-18 cursor-pointer"
+				className="size-18 cursor-pointer sm:size-16"
 				onClick={() => navigate({ to: "/", search: { showContactForm: true } })}
 			>
 				<AtIcon className={iconClassName} />
