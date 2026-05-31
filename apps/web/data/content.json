@@ -1,133 +1,371 @@
 {
-  "projects" : [
-    {
-      "name": "Emoji Invaders",
-      "description":
-        "One of my first projects after learning Javascript. I had initially wanted to do it in react, but decided to see if I could move the elements around in the DOM myself. I was a learning experience in finding out what attributes can be changed an animated in a performant way.",
-      "github": "https://github.com/jenniferfix/emoji-invaders-vanillajs",
-      "demo": "",
-      "screenshots": [""],
-      "screenshotDescriptions":[""]
-    },
-    {
-      "name": "Calgary Non-Binary and Transgender Society",
-      "description":
-        "Built for a local group. Uses Next.js, Sentry.io for content management. No longer online as group is gone.",
-      "github": "https://github.com/Calgary-NBTS/cnbts-web",
-      "demo": "",
-      "screenshots": [""],
-      "screenshotDescriptions":[""]
-    },
-    {
-      "name": "Conveyor Jam/Fault Display",
-      "description": "",
-      "github": "https://github.com/jenniferfix/singulator-jams",
-      "screenshots": [""],
-        "screenshotDescriptions":[""]
-    },
-    {
-      "name": "The Feud",
-      "description": "",
-      "github": "https://github.com/jenniferfix/thefeud",
-      "demo": "",
-      "screenshots": [""],
-      "screenshotDescriptions":[""]
-    }
-  ],
-  "socials": [
-    {
-      "name": "github",
-      "url": "https://github.com/jenniferfix"
-    },
-    {
-      "name": "x",
-      "url": "https://x.com/jenn_00101010"
-    },
-    {
-      "name": "bluesky",
-      "url": "https://bsky.app/profile/jenn.fyi"
-    },
-    {
-      "name": "linkedin",
-      "url": "https://www.linkedin.com/in/jennifer-fix/"
-    }
-  ],
-  "stackBadges": [
-    {
-      "label": "HTML",
-      "url": "https://html.spec.whatwg.org/multipage/"
-    },
-    {
-      "label": "CSS",
-      "url": "https://www.w3.org/Style/CSS/Overview.en.html"
-    },
-    {
-      "label": "Javascript",
-      "url": ""
-    },
-    {
-      "label": "Typescript",
-      "url": "https://www.typescriptlang.org/"
-    },
-    {
-      "label": "React",
-      "url": "https://react.dev/"
-    },
-    {
-      "label": "TailwindCSS",
-      "url": "https://tailwindcss.com/"
-    },
-    {
-      "label": "Tanstack Start",
-      "url": "https://tanstack.com/"
-    },
-    {
-      "label": "Node.js",
-      "url": "https://nodejs.org/"
-    },
-    {
-      "label": "Frontend",
-      "url": ""
-    },
-    {
-      "label": "Fullstack",
-      "url": ""
-    },
-    {
-      "label": "Next.js",
-      "url": ""
-    },
-    {
-      "label": "Git",
-      "url": ""
-    },
-    {
-      "label": "Arch",
-      "url": "https://archlinux.org/"
-    },
-    {
-      "label": "Neovim",
-      "url": "https://neovim.io/"
-    },
-    {
-      "label": "Ghostty",
-      "url": "https://ghostty.org/"
-    },
-    {
-      "label": "Electron",
-      "url": ""
-    },
-    {
-      "label": "Postgres",
-      "url": ""
-    },
-    {
-      "label": "Linux",
-      "url": ""
-    },
-    {
-      "label": "Automation",
-      "url": ""
-    }
-  ]
+	"projects": [
+		{
+			"name": "Calgary Non-Binary and Transgender Society",
+			"description": "Built for a local group. Uses Next.js, Sanity.io for content management. No longer online as group is gone.",
+			"github": "https://github.com/Calgary-NBTS/cnbts-web",
+			"demo": "",
+			"slides": [
+				{
+					"type": "variants",
+					"variants": {
+						"light": {
+							"name": "Light mode",
+							"alt": "Screenshot of Calgary NBTS homepage, light mode",
+							"description": "Screenshot of Calgary NBTS homepage, light mode",
+							"images": [
+								{
+									"url": "/images/projects/cnbts/homepage-light_320x168.png",
+									"width": 320,
+									"height": 168
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-light_640x335.png",
+									"width": 640,
+									"height": 335
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-light_960x503.png",
+									"width": 960,
+									"height": 503,
+									"default": true
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-light_1280x670.png",
+									"width": 1280,
+									"height": 670
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-light_1920x1005.png",
+									"width": 1920,
+									"height": 1005
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-light_3793x1986.png",
+									"width": 3793,
+									"height": 1986
+								}
+							]
+						},
+						"dark": {
+							"name": "Dark mode",
+							"alt": "Screenshot of Calgary NBTS homepage, dark mode",
+							"description": "Screenshot of Calgary NBTS homepage, dark mode",
+							"images": [
+								{
+									"url": "/images/projects/cnbts/homepage-dark_320x168.png",
+									"width": 320,
+									"height": 168
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-dark_640x335.png",
+									"width": 640,
+									"height": 335
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-dark_960x503.png",
+									"width": 960,
+									"height": 503,
+									"default": true
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-dark_1280x670.png",
+									"width": 1280,
+									"height": 670
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-dark_1920x1005.png",
+									"width": 1920,
+									"height": 1005
+								},
+								{
+									"url": "/images/projects/cnbts/homepage-dark_3793x1986.png",
+									"width": 3793,
+									"height": 1986
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "variants",
+					"variants": {
+						"light": {
+							"name": "Light mode",
+							"alt": "Screenshot of Calgary NBTS Calendar page, light mode",
+							"description": "Screenshot of Calgary NBTS Calendar page, light mode",
+							"images": [
+								{
+									"url": "/images/projects/cnbts/calendar-light_320x206.png",
+									"width": 320,
+									"height": 206
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-light_640x411.png",
+									"width": 640,
+									"height": 411
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-light_960x617.png",
+									"width": 960,
+									"height": 617,
+									"default": true
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-light_1280x822.png",
+									"width": 1280,
+									"height": 822
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-light_1920x1233.png",
+									"width": 1920,
+									"height": 1233
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-light_3793x2436.png",
+									"width": 3793,
+									"height": 2436
+								}
+							]
+						},
+						"dark": {
+							"name": "Dark mode",
+							"alt": "Screenshot of Calgary NBTS Calendar page, dark mode",
+							"description": "Screenshot of Calgary NBTS Calendar page, dark mode",
+							"images": [
+								{
+									"url": "/images/projects/cnbts/calendar-dark_320x206.png",
+									"width": 320,
+									"height": 206
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-dark_640x411.png",
+									"width": 640,
+									"height": 411
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-dark_960x617.png",
+									"width": 960,
+									"height": 617,
+									"default": true
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-dark_1280x822.png",
+									"width": 1280,
+									"height": 822
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-dark_1920x1233.png",
+									"width": 1920,
+									"height": 1233
+								},
+								{
+									"url": "/images/projects/cnbts/calendar-dark_3793x2436.png",
+									"width": 3793,
+									"height": 2436
+								}
+							]
+						}
+					}
+				},
+				{
+					"type": "variants",
+					"variants": {
+						"light": {
+							"name": "Light mode",
+							"alt": "Screenshot of the about us page, details of photos and personal details blurred out, light mode",
+							"description": "Screenshot of the about us page, light mode",
+							"images": [
+								{
+									"url": "/images/projects/cnbts/about-light_320x567.png",
+									"width": 320,
+									"height": 567
+								},
+								{
+									"url": "/images/projects/cnbts/about-light_640x1133.png",
+									"width": 640,
+									"height": 1133
+								},
+								{
+									"url": "/images/projects/cnbts/about-light_960x1700.png",
+									"width": 960,
+									"height": 1700,
+									"default": true
+								},
+								{
+									"url": "/images/projects/cnbts/about-light_1280x2267.png",
+									"width": 1280,
+									"height": 2267
+								},
+								{
+									"url": "/images/projects/cnbts/about-light_1920x3400.png",
+									"width": 1920,
+									"height": 3400
+								},
+								{
+									"url": "/images/projects/cnbts/about-light_3793x.6717png",
+									"width": 3793,
+									"height": 6717
+								}
+							]
+						},
+						"dark": {
+							"name": "Dark mode",
+							"alt": "Screenshot of the about us page, details of photos and personal details blurred out, dark mode",
+							"description": "Screenshot of the about us page, dark mode",
+							"images": [
+								{
+									"url": "/images/projects/cnbts/about-dark_320x567.png",
+									"width": 320,
+									"height": 567
+								},
+								{
+									"url": "/images/projects/cnbts/about-dark_640x1133.png",
+									"width": 640,
+									"height": 1133
+								},
+								{
+									"url": "/images/projects/cnbts/about-dark_960x1700.png",
+									"width": 960,
+									"height": 1700,
+									"default": true
+								},
+								{
+									"url": "/images/projects/cnbts/about-dark_1280x2267.png",
+									"width": 1280,
+									"height": 2267
+								},
+								{
+									"url": "/images/projects/cnbts/about-dark_1920x3400.png",
+									"width": 1920,
+									"height": 3400
+								},
+								{
+									"url": "/images/projects/cnbts/about-dark_3793x.6717png",
+									"width": 3793,
+									"height": 6717
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Conveyor Jam/Fault Display",
+			"description": "",
+			"github": "https://github.com/jenniferfix/singulator-jams",
+			"screenshots": []
+		},
+		{
+			"name": "The Feud",
+			"description": "Create and play custom games of Family Fued. Separate host control and display board. Used Supabase for the backend.",
+			"github": "https://github.com/jenniferfix/thefeud",
+			"demo": "",
+			"screenshots": []
+		},
+		{
+			"name": "Emoji Invaders",
+			"description": "One of my first projects after learning Javascript. I had initially wanted to do it in react, but decided to see if I could move the elements around in the DOM myself. I was a learning experience in finding out what attributes can be changed an animated in a performant way.",
+			"github": "https://github.com/jenniferfix/emoji-invaders-vanillajs",
+			"demo": "",
+			"screenshots": []
+		}
+	],
+	"socials": [
+		{
+			"name": "github",
+			"url": "https://github.com/jenniferfix"
+		},
+		{
+			"name": "x",
+			"url": "https://x.com/jenn_00101010"
+		},
+		{
+			"name": "bluesky",
+			"url": "https://bsky.app/profile/jenn.fyi"
+		},
+		{
+			"name": "linkedin",
+			"url": "https://www.linkedin.com/in/jennifer-fix/"
+		}
+	],
+	"stackBadges": [
+		{
+			"label": "HTML",
+			"url": "https://html.spec.whatwg.org/multipage/"
+		},
+		{
+			"label": "CSS",
+			"url": "https://www.w3.org/Style/CSS/Overview.en.html"
+		},
+		{
+			"label": "Javascript",
+			"url": ""
+		},
+		{
+			"label": "Typescript",
+			"url": "https://www.typescriptlang.org/"
+		},
+		{
+			"label": "React",
+			"url": "https://react.dev/"
+		},
+		{
+			"label": "TailwindCSS",
+			"url": "https://tailwindcss.com/"
+		},
+		{
+			"label": "Tanstack Start",
+			"url": "https://tanstack.com/"
+		},
+		{
+			"label": "Node.js",
+			"url": "https://nodejs.org/"
+		},
+		{
+			"label": "Frontend",
+			"url": ""
+		},
+		{
+			"label": "Fullstack",
+			"url": ""
+		},
+		{
+			"label": "Next.js",
+			"url": ""
+		},
+		{
+			"label": "Git",
+			"url": ""
+		},
+		{
+			"label": "Arch",
+			"url": "https://archlinux.org/"
+		},
+		{
+			"label": "Neovim",
+			"url": "https://neovim.io/"
+		},
+		{
+			"label": "Ghostty",
+			"url": "https://ghostty.org/"
+		},
+		{
+			"label": "Electron",
+			"url": ""
+		},
+		{
+			"label": "Postgres",
+			"url": ""
+		},
+		{
+			"label": "Linux",
+			"url": ""
+		},
+		{
+			"label": "Automation",
+			"url": ""
+		}
+	]
 }

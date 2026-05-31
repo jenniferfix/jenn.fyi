@@ -17,17 +17,17 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
 	return (
-		<main id="main">
-			<div className="overflow-x-clip snap-y snap-mandatory overflow-y-auto h-screen">
-				<Hero />
-				<Resume />
-				<Portfolio />
-				<CodeSample />
-				<Bio />
-				<TechStack />
-				<Socials />
-				<More />
-			</div>
+		<main
+			id="main"
+			className="overflow-x-clip snap-y snap-mandatory overflow-y-auto h-screen"
+		>
+			<Hero />
+			<Resume />
+			<Portfolio />
+			<Bio />
+			<TechStack />
+			<Socials />
+			<More />
 		</main>
 	);
 }

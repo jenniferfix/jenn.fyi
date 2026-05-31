@@ -45,10 +45,10 @@ export const Hero = () => {
 					<JenniferAvatar />
 				</div>
 				<div className="">
-					<div className="text-2xl font-code">
+					<div className="text-2xl font-code md:text-xl">
 						<Typer text="Hello, World" delay={200} />
 					</div>
-					<div className="text-5xl my-2">
+					<div className="text-4xl my-2 sm:text-5xl">
 						<span className="text-teal-400">I&#39;m </span>
 						<span className="rainbowtext">Jennifer Fix</span>
 					</div>

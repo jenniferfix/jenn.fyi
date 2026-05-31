@@ -1,5 +1,54 @@
 import { z } from "zod";
 
+export const imageSizeSchema = z.object({
+	url: z.string(),
+	width: z.int(),
+	height: z.int(),
+	default: z.boolean().default(false),
+});
+
+const imgArray = z.array(imageSizeSchema);
+
+export const screenshotSchema = z.object({
+	alt: z.string({ error: "Alt text is required!" }),
+	description: z.string(),
+	images: imgArray,
+});
+export type ScreenshotType = z.infer<typeof screenshotSchema>;
+
+const variantArray = ["dark", "light"] as const;
+const variantEnum = z.enum(variantArray);
+
+const variantSchema = z.object({
+	name: z.string({ error: "Must provide a pretty variant name" }),
+	...screenshotSchema.shape,
+});
+
+const variantRecord = z.record(variantEnum, variantSchema);
+export type VariantRecord = z.infer<typeof variantRecord>;
+
+const slideTypes = ["basic", "variants"] as const;
+
+const slideTypeEnum = z.enum(slideTypes);
+
+const basicSlideSchema = z.object({
+	type: z.literal("basic"),
+	image: screenshotSchema,
+});
+const variantSlideSchema = z.object({
+	type: z.literal("variants"),
+	variants: variantRecord,
+});
+
+const slideUnion = z.discriminatedUnion("type", [
+	basicSlideSchema,
+	variantSlideSchema,
+]);
+
+export const projectSlides = z.array(slideUnion);
+
+export type ProjectSlide = z.infer<typeof slideUnion>;
+
 export const socials = ["github", "bluesky", "x", "linkedin"] as const;
 export const socialsEnum = z.enum(socials);
 
@@ -12,8 +61,7 @@ export const projectSchema = z.object({
 	description: z.string(),
 	github: z.string().optional(),
 	demo: z.string().optional(),
-	screenshots: z.array(z.string()).optional(),
-	screenshotDescriptions: z.array(z.string()).optional(),
+	slides: projectSlides.optional(),
 });
 export type ProjectType = z.infer<typeof projectSchema>;
 

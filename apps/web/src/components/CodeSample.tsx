@@ -1,6 +1,6 @@
 import { Markdown } from "@jenn.fyi/ui/components/markdown";
 import { ScrollArea } from "@jenn.fyi/ui/components/scroll-area";
-import code from "../../data/code.md?raw";
+import code from "../../data/markdowntests.md?raw";
 
 export const CodeSample = () => {
 	return (
