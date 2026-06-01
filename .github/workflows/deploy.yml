@@ -7,7 +7,6 @@ on:
 
 env:
   IMAGE_NAME: ghcr.io/${{ vars.GHCR_USERNAME }}/${{ vars.IMAGE_NAME }}
-  CADDY_IMAGE_NAME: ghcr.io/${{ vars.GHCR_USERNAME }}/${{ vars.IMAGE_NAME }}-caddy
 
 jobs:
   build-and-deploy:
@@ -41,18 +40,6 @@ jobs:
           build-args: |
             VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
 
-      - name: Build and push Caddy image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./docker/caddy/Dockerfile
-          push: true
-          tags: |
-            ${{ env.CADDY_IMAGE_NAME }}:latest
-            ${{ env.CADDY_IMAGE_NAME }}:${{ github.sha }}
-          cache-from: type=gha,scope=caddy
-          cache-to: type=gha,mode=max,scope=caddy
-
       - name: Prepare deploy directory
         uses: appleboy/ssh-action@v1
         with:
@@ -85,10 +72,8 @@ jobs:
 
             cat > .env <<'EOF'
             IMAGE=${{ env.IMAGE_NAME }}:${{ github.sha }}
-            CADDY_IMAGE=${{ env.CADDY_IMAGE_NAME }}:${{ github.sha }}
             TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
-            CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}
             EOF
 
             echo "${{ secrets.GHCR_READ_TOKEN }}" | docker login ghcr.io \
@@ -96,6 +81,5 @@ jobs:
               --password-stdin
 
             docker compose pull web
-            docker compose pull caddy
             docker compose up -d --no-build --remove-orphans
             docker image prune -f
