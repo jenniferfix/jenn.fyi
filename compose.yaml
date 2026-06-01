@@ -12,12 +12,10 @@ services:
       - app_net
 
   caddy:
-    image: ${CADDY_IMAGE}
+    image: caddy:2-alpine
     restart: unless-stopped
     depends_on:
       - web
-    environment:
-      CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN}
     ports:
       - "80:80"
       - "443:443"
