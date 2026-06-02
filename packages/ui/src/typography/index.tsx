@@ -197,24 +197,6 @@ export function Anchor({
 	);
 }
 
-export function InlineCode({
-	children,
-	className,
-	...props
-}: React.ComponentProps<"code">) {
-	return (
-		<code
-			className={cn(
-				"relative rounded bg-muted/60 px-2 py-[0.2rem] font-code text-sm font-semibold ",
-				className,
-			)}
-			{...props}
-		>
-			{children}
-		</code>
-	);
-}
-
 export function Em({
 	children,
 	className,
@@ -256,7 +238,6 @@ export function Pre({
 		</pre>
 	);
 }
-
 export function InlineCode({
 	children,
 	className,
