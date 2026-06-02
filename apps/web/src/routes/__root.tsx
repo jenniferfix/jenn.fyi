@@ -40,6 +40,11 @@ export const Route = createRootRoute({
 				href: "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap",
 			},
 			{
+				rel: "preload",
+				href: appCss,
+				as: "style",
+			},
+			{
 				rel: "stylesheet",
 				href: appCss,
 			},
