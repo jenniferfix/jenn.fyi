@@ -98,10 +98,9 @@ export const formSchema = z.object({
 
 export const homeSearchParams = z.object({
 	showContactForm: z.preprocess((value) => {
-		if (value === undefined) return false;
 		if (value === "") return true;
 		if (value === true || value === "true") return true;
 		if (value === false || value === "false") return false;
 		return value;
-	}, z.boolean()),
+	}, z.boolean().optional()),
 });
