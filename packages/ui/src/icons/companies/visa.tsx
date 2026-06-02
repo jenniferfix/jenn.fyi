@@ -7,6 +7,8 @@ export const VisaIcon = (props: React.ComponentProps<"svg">) => (
 		preserveAspectRatio="xMidYMid"
 		{...props}
 	>
+		<title>Visa</title>
+		<rect width="256" height="83" fill="none" />
 		<defs>
 			<linearGradient id="a" x1="45.974%" x2="54.877%" y1="-2.006%" y2="100%">
 				<stop offset="0%" stopColor="#222357" />

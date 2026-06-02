@@ -1,9 +1,9 @@
 import { Button } from "@jenn.fyi/ui/components/button";
 import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "@jenn.fyi/ui/components/dropdown-menu";
 import { cn } from "@jenn.fyi/ui/lib/utils";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";

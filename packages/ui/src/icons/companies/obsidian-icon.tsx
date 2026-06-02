@@ -8,6 +8,7 @@ export const ObsidianIcon = (props: React.ComponentProps<"svg">) => (
 		{...props}
 	>
 		<title>{"Obsidian"}</title>
+		<rect width="256" height="332" fill="none" />
 		<defs>
 			<radialGradient
 				id="a"

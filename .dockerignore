@@ -1,6 +1,10 @@
+.pnpm-store
+dist
+build
+.git
+.gitignore
 node_modules
 **/node_modules
-**/.output
 **/dist
 .git
 .env*

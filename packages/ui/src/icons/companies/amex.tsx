@@ -8,6 +8,7 @@ export const AmexIcon = (props: React.ComponentProps<"svg">) => (
 		{...props}
 	>
 		<title>{"AMEX"}</title>
+		<rect width="256" height="256" fill="none" />
 		<path
 			fill="#006FCF"
 			d="M256 138.548V0H0v256h256v-74.69c-.57 0 0-42.762 0-42.762"

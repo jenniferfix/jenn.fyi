@@ -7,7 +7,12 @@ import viteTsConfigPaths from "vite-tsconfig-paths";
 
 const config = defineConfig({
 	server: {
-		allowedHosts: ["archwitch.tail2b2c5b.ts.net"],
+		allowedHosts: [
+			"archwitch.tail2b2c5b.ts.net",
+			"catty",
+			"jenn.fyi",
+			"www.jenn.fyi",
+		],
 	},
 	plugins: [
 		nitro(),
@@ -15,7 +20,12 @@ const config = defineConfig({
 			projects: ["./tsconfig.json"],
 		}),
 		tailwindcss(),
-		tanstackStart(),
+		tanstackStart({
+			prerender: {
+				enabled: true,
+				autoStaticPathsDiscovery: true,
+			},
+		}),
 		viteReact(),
 	],
 });

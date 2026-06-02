@@ -1,4 +1,8 @@
+www.jenn.fyi {
+	redir https://jenn.fyi{uri} permanent
+}
+
 jenn.fyi {
-  encode zstd gzip
-  reverse_proxy web:3000
+	encode zstd gzip
+	reverse_proxy web:3000
 }

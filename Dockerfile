@@ -6,34 +6,24 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
 WORKDIR /repo
-
 FROM base AS deps
-
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
-
 RUN pnpm fetch --prod=false
-
 FROM base AS builder
+
+ARG VITE_TURNSTILE_SITE_KEY
+ENV VITE_TURNSTILE_SITE_KEY=$VITE_TURNSTILE_SITE_KEY
 
 COPY --from=deps /pnpm/store /pnpm/store
 COPY . .
-
-RUN pnpm install --frozen-lockfile --offline
-
-ARG APP_FILTER=@jenn.fyi/web
-
-RUN pnpm --filter "${APP_FILTER}..." build
-
+RUN pnpm install
+RUN pnpm build
 FROM node:22-alpine AS runner
-
 WORKDIR /app
-
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=3000
-
 COPY --from=builder /repo/apps/web/.output ./.output
-
 EXPOSE 3000
 
 CMD ["node", ".output/server/index.mjs"]
