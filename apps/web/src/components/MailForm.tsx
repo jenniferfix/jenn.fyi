@@ -53,7 +53,7 @@ export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 		form.reset();
 		onShowChange?.(false);
 		toast("Message sent!");
-	}, [form, toast]);
+	}, [form, onShowChange]);
 
 	React.useEffect(() => {
 		if (message === "Sent") {

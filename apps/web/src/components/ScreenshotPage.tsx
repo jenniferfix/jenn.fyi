@@ -7,6 +7,7 @@ import {
 import { cn } from "@jenn.fyi/ui/lib/utils";
 import React from "react";
 import type { ProjectSlide, ScreenshotType, VariantRecord } from "@/lib/schema";
+import { type Theme, useTheme } from "./theme-provider";
 
 export type ScreenshotPageProps = ScreenshotType &
 	React.ComponentProps<"figure">;
@@ -28,6 +29,7 @@ export const ScreenshotPageImage = ({
 				{description}
 			</figcaption>
 			<img
+				loading="lazy"
 				src={defaultImg.url}
 				width={defaultImg.width}
 				height={defaultImg.height}
@@ -42,14 +44,21 @@ export const ScreenshotPageImage = ({
 type VariantSlideProps = { variants: VariantRecord };
 
 export const ScreenshotPageVariants = ({ variants }: VariantSlideProps) => {
+	const { theme } = useTheme();
+	const [currentTheme, setCurrentTheme] = React.useState<"dark" | "light">(
+		theme === "system" ? "light" : theme,
+	);
+
 	return (
-		<Tabs>
+		<Tabs value={currentTheme}>
 			<TabsList>
-				{Object.entries(variants).map(([key, variant]) => (
-					<TabsTrigger key={key} value={key}>
-						{variant.name}
-					</TabsTrigger>
-				))}
+				{Object.entries(variants).map(([key, variant]) => {
+					return (
+						<TabsTrigger key={key} value={key}>
+							{variant.name}
+						</TabsTrigger>
+					);
+				})}
 			</TabsList>
 
 			{Object.entries(variants).map(([key, variant]) => (
