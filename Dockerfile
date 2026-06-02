@@ -16,7 +16,7 @@ ENV VITE_TURNSTILE_SITE_KEY=$VITE_TURNSTILE_SITE_KEY
 
 COPY --from=deps /pnpm/store /pnpm/store
 COPY . .
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
 RUN pnpm build
 FROM node:22-alpine AS runner
 WORKDIR /app

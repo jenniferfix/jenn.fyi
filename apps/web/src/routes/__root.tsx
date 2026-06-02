@@ -1,9 +1,9 @@
 import { Toaster } from "@jenn.fyi/ui/components/sonner";
 import {
-	createRootRoute,
 	ErrorComponent,
 	HeadContent,
 	Scripts,
+	createRootRoute,
 } from "@tanstack/react-router";
 import { useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
@@ -11,7 +11,7 @@ import { FloatingTheme } from "@/components/FloatingTheme";
 import { MailForm } from "@/components/MailForm";
 import { ThemeProvider } from "@/components/theme-provider";
 import { homeSearchParams } from "@/lib/schema";
-import appCss from "../globals.css?url";
+import "../globals.css";
 
 export const Route = createRootRoute({
 	validateSearch: homeSearchParams,
@@ -68,15 +68,6 @@ export const Route = createRootRoute({
 			},
 		],
 		links: [
-			{
-				rel: "preload",
-				href: appCss,
-				as: "style",
-			},
-			{
-				rel: "stylesheet",
-				href: appCss,
-			},
 			{ rel: "icon", href: "/favicon.ico", sizes: "any" },
 			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 		],
@@ -108,19 +99,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			else
 				navigate({
 					to: path,
-					search: { showContactForm: false },
+					search: {},
 					params,
 				});
 		},
 		[navigate, params],
 	);
 
-	const toShow =
-		showContactForm === undefined
-			? false
-			: showContactForm === null
-				? true
-				: showContactForm;
+	const toShow = showContactForm ?? false;
 
 	return (
 		<html lang="en" suppressHydrationWarning>
