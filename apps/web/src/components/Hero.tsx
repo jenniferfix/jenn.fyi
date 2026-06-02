@@ -36,14 +36,11 @@ const Typer = ({ text, delay }: { text: string; delay: number }) => {
 
 export const Hero = () => {
 	return (
-		<section
-			id="hero"
-			className="flex justify-center items-center min-h-screen snap-start"
-		>
-			<div className="flex flex-col md:flex-row">
-				<div className="flex justify-center mb-8 md:mb-0 md:my-auto md:mr-8">
+		<section id="hero" className="herosection">
+			<div className="">
+				<figure className="">
 					<JenniferAvatar />
-				</div>
+				</figure>
 				<div className="">
 					<div className="text-2xl font-code md:text-xl">
 						<Typer text="Hello, World" delay={200} />

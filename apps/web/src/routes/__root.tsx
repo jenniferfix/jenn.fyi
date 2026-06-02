@@ -1,8 +1,13 @@
 import { Toaster } from "@jenn.fyi/ui/components/sonner";
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+	createRootRoute,
+	ErrorComponent,
+	HeadContent,
+	Scripts,
+} from "@tanstack/react-router";
 import { useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
-import FloatingTheme from "@/components/FloatingTheme";
+import { FloatingTheme } from "@/components/FloatingTheme";
 import { MailForm } from "@/components/MailForm";
 import { ThemeProvider } from "@/components/theme-provider";
 import { homeSearchParams } from "@/lib/schema";
@@ -52,6 +57,7 @@ export const Route = createRootRoute({
 			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 		],
 	}),
+	errorComponent: ErrorComponent,
 	notFoundComponent: () => (
 		<main className="container mx-auto p-4 pt-16">
 			<h1>404</h1>
