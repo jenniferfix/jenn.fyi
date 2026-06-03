@@ -4,10 +4,9 @@ import {
 	TabsList,
 	TabsTrigger,
 } from "@jenn.fyi/ui/components/tabs";
-import { cn } from "@jenn.fyi/ui/lib/utils";
 import React from "react";
 import type { ProjectSlide, ScreenshotType, VariantRecord } from "@/lib/schema";
-import { type Theme, useTheme } from "./theme-provider";
+import { useTheme } from "./theme-provider";
 
 export type ScreenshotPageProps = ScreenshotType &
 	React.ComponentProps<"figure">;
@@ -25,7 +24,7 @@ export const ScreenshotPageImage = ({
 
 	return (
 		<figure id={id} {...props}>
-			<figcaption className="px-4 py-2 bg-background/30 text-foreground text-sm">
+			<figcaption className="bg-background/30 px-4 py-2 text-sm text-foreground">
 				{description}
 			</figcaption>
 			<img
@@ -44,13 +43,23 @@ export const ScreenshotPageImage = ({
 type VariantSlideProps = { variants: VariantRecord };
 
 export const ScreenshotPageVariants = ({ variants }: VariantSlideProps) => {
-	const { theme } = useTheme();
-	const [currentTheme, setCurrentTheme] = React.useState<"dark" | "light">(
-		theme === "system" ? "light" : theme,
-	);
+	const { mounted, resolvedTheme } = useTheme();
+	const [currentTheme, setCurrentTheme] = React.useState<
+		"dark" | "light" | null
+	>(null);
+
+	React.useEffect(() => {
+		if (!mounted) return;
+		setCurrentTheme((current) => current ?? resolvedTheme);
+	}, [mounted, resolvedTheme]);
+
+	if (!currentTheme) return null;
 
 	return (
-		<Tabs value={currentTheme}>
+		<Tabs
+			value={currentTheme}
+			onValueChange={(value) => setCurrentTheme(value as "dark" | "light")}
+		>
 			<TabsList>
 				{Object.entries(variants).map(([key, variant]) => {
 					return (
@@ -79,8 +88,8 @@ export const SlidePage = (props: SlidePageProps) => {
 	// 	return <ScreenshotPageVariants variants={variants} {...props} />;
 	// throw Error("Must have one of images or variants");
 	return (
-		<div className="snap-start min-h-full pr-4">
-			<div className="border rounded-3xl h-full overflow-hidden">
+		<div className="min-h-full snap-start pr-4">
+			<div className="h-full overflow-hidden rounded-3xl border">
 				{props.type === "basic" && <ScreenshotPageImage {...props.image} />}
 				{props.type === "variants" && (
 					<ScreenshotPageVariants variants={props.variants} />

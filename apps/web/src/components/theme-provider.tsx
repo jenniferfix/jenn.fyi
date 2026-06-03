@@ -11,6 +11,8 @@ type ThemeProviderProps = {
 
 type ThemeProviderState = {
 	theme: Theme;
+	resolvedTheme: Exclude<Theme, "system">;
+	mounted: boolean;
 	setTheme: (theme: Theme) => void;
 };
 
@@ -23,19 +25,24 @@ function getThemeScript(storageKey: string, defaultTheme: Theme) {
 
 const ThemeProviderContext = createContext<ThemeProviderState>({
 	theme: "system",
+	resolvedTheme: "light",
+	mounted: false,
 	setTheme: () => {},
 });
+
+function getResolvedTheme(theme: Theme): Exclude<Theme, "system"> {
+	if (theme !== "system") return theme;
+	if (typeof window === "undefined") return "light";
+	return window.matchMedia("(prefers-color-scheme: dark)").matches
+		? "dark"
+		: "light";
+}
 
 function applyTheme(theme: Theme) {
 	const root = document.documentElement;
 	root.classList.remove("light", "dark");
 
-	const resolved =
-		theme === "system"
-			? window.matchMedia("(prefers-color-scheme: dark)").matches
-				? "dark"
-				: "light"
-			: theme;
+	const resolved = getResolvedTheme(theme);
 
 	root.classList.add(resolved);
 	root.style.colorScheme = resolved;
@@ -79,7 +86,14 @@ export function ThemeProvider({
 	};
 
 	return (
-		<ThemeProviderContext value={{ theme, setTheme }}>
+		<ThemeProviderContext
+			value={{
+				theme,
+				resolvedTheme: getResolvedTheme(theme),
+				mounted,
+				setTheme,
+			}}
+		>
 			<ScriptOnce>{getThemeScript(storageKey, defaultTheme)}</ScriptOnce>
 			{children}
 		</ThemeProviderContext>
