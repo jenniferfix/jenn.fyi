@@ -16,27 +16,21 @@ export const FloatingTheme = React.memo(() => {
 
 	React.useEffect(() => {
 		const handleScroll = () => {
-			const mainElement = document.getElementById("main");
-			if (mainElement) {
-				setScrollPos(mainElement.scrollTop);
-			}
+			setScrollPos(window.scrollY);
 		};
 		handleScroll();
 
-		const mainElement = document.getElementById("main");
-		if (mainElement) {
-			mainElement.addEventListener("scroll", handleScroll, { passive: true });
-		}
+		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		return () => {
-			if (mainElement) mainElement.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
 	return (
 		<div
 			className={cn(
-				"absolute top-4 lg:top-8 right-4 lg:right-8 transition-opacity duration-300",
+				"fixed top-4 lg:top-8 right-4 lg:right-8 transition-opacity duration-300",
 				show
 					? "opacity-100 pointer-events-auto"
 					: "opacity-0 pointer-events-none",

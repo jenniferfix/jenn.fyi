@@ -8,9 +8,8 @@ export const More = () => {
 	const [show, setShow] = React.useState(true);
 
 	React.useEffect(() => {
-		const mainElement = document.getElementById("main");
-		if (!mainElement) return;
-		const full = mainElement.scrollHeight - window.innerHeight;
+		// const mainElement = document.getElementById("main");
+		const full = document.documentElement.scrollHeight - window.innerHeight;
 		if (scrollPos > full - 20) {
 			setShow(false);
 		} else {
@@ -20,27 +19,21 @@ export const More = () => {
 
 	React.useEffect(() => {
 		const handleScroll = () => {
-			const mainElement = document.getElementById("main");
-			if (!mainElement) return;
-
-			setScrollPos(mainElement.scrollTop);
+			setScrollPos(window.scrollY);
 		};
 		handleScroll();
 
-		const mainElement = document.getElementById("main");
-		if (mainElement) {
-			mainElement.addEventListener("scroll", handleScroll, { passive: true });
-		}
+		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		return () => {
-			if (mainElement) mainElement.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
 	return (
 		<div
 			className={cn(
-				"text-sm cursor-default absolute bottom-2 inset-x-0 w-fit mx-auto bg-popover/75 text-popover-foreground  py-2 px-4 rounded flex items-center gap-1",
+				"text-sm cursor-default fixed bottom-2 inset-x-0 w-fit mx-auto bg-popover/75 text-popover-foreground  py-2 px-4 rounded flex items-center gap-1",
 				show
 					? "animate-in fade-in-25 slide-in-from-bottom"
 					: "animate-out fade-out-0 slide-out-to-bottom-0",
