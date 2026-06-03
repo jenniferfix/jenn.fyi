@@ -238,6 +238,7 @@ export function Pre({
 		</pre>
 	);
 }
+
 export function InlineCode({
 	children,
 	className,
@@ -253,5 +254,28 @@ export function InlineCode({
 		>
 			{children}
 		</code>
+	);
+}
+
+export function Superscript({
+	children,
+	className,
+	...props
+}: React.ComponentProps<"sup">) {
+	return (
+		<sup className={cn("align-super text-xs", className)} {...props}>
+			{children}
+		</sup>
+	);
+}
+export function Subscript({
+	children,
+	className,
+	...props
+}: React.ComponentProps<"sub">) {
+	return (
+		<sub className={cn("align-sub text-xs", className)} {...props}>
+			{children}
+		</sub>
 	);
 }

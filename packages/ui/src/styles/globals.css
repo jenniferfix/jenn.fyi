@@ -137,20 +137,25 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+	html {
+		scroll-snap-type: y mandatory;
+	}
 	body {
 		@apply bg-background text-foreground;
 		letter-spacing: var(--tracking-tight);
 		height: 100vh;
-		overflow: hidden;
 		background-attachment: scroll;
 		background-image: radial-gradient(
 			ellipse,
 			hsl(var(--glow)) 10%,
 			var(--background) 90%
 		);
+		overflow-x: clip;
+		overflow-y: auto;
 	}
 }
 
+/* className="overflow-x-clip snap-y snap-mandatory overflow-y-auto h-screen" */
 .glow {
 	/*background-image: radial-gradient(*/
 	/*  ellipse,*/
