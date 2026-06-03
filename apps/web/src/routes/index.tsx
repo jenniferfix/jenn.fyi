@@ -17,10 +17,7 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
 	return (
-		<main
-			id="main"
-			className="overflow-x-clip snap-y snap-mandatory overflow-y-auto h-screen"
-		>
+		<main id="main">
 			<Hero />
 			<Resume />
 			<Portfolio />

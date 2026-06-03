@@ -31,7 +31,6 @@ export const Route = createRootRoute({
 	margin-bottom: calc(var(--spacing) * 8);
 	/* flex justify-center mb-8 md:mb-0 md:my-auto md:mr-8 */
 }
-
 .herosection > div:first-child {
 	display: flex;
 	flex-direction: column;

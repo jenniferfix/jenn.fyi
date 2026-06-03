@@ -1,6 +1,6 @@
 # Bio
 
-My name is Jennifer Fix, I'm from the great white north.
+My name is Jennifer Fix, she/her. I'm from Alberta in the great white north.
 
 I am a self-taught full stack web developer. I work primarily with Typescript and React.
 
