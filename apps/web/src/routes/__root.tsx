@@ -1,9 +1,9 @@
 import { Toaster } from "@jenn.fyi/ui/components/sonner";
 import {
+	createRootRoute,
 	ErrorComponent,
 	HeadContent,
 	Scripts,
-	createRootRoute,
 } from "@tanstack/react-router";
 import { useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
@@ -106,8 +106,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 		[navigate, params],
 	);
 
-	const toShow = showContactForm ?? false;
-
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>
@@ -123,7 +121,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						<FloatingTheme />
 						{children}
 						<Toaster />
-						<MailForm show={toShow} onShowChange={handleMailFormShowChange} />
+						<MailForm
+							show={!!showContactForm}
+							onShowChange={handleMailFormShowChange}
+						/>
 					</ThemeProvider>
 				</ContentContextProvider>
 				<Scripts />

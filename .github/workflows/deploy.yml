@@ -37,8 +37,6 @@ jobs:
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: |
-            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
 
       - name: Prepare deploy directory
         uses: appleboy/ssh-action@v1
@@ -73,6 +71,7 @@ jobs:
             cat > .env <<'EOF'
             IMAGE=${{ env.IMAGE_NAME }}:${{ github.sha }}
             TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
+            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
             CDN_ORIGIN=${{ vars.CDN_ORIGIN }}
             EOF
