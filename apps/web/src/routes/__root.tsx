@@ -6,11 +6,14 @@ import {
 } from "@tanstack/react-router";
 import { lazy, Suspense, useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
+import { DevTools } from "@/components/devtools";
 import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { appStrings } from "@/lib/constants";
 import { homeSearchParams } from "@/lib/schema";
 import "../globals.css";
+
+const isProd = process.env.NODE_ENV === "production";
 
 const MailForm = lazy(() =>
 	import("@/components/MailForm").then((module) => ({
@@ -179,6 +182,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 							/>
 						</Suspense>
 					</ThemeProvider>
+					{!isProd && <DevTools />}
 				</ContentContextProvider>
 				<Scripts />
 			</body>
