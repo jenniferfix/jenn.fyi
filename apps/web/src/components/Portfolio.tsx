@@ -1,4 +1,3 @@
-import { Button, buttonVariants } from "@jenn.fyi/ui/components/button";
 import {
 	Carousel,
 	type CarouselApi,
@@ -8,13 +7,6 @@ import {
 	CarouselPrevious,
 	useCarousel,
 } from "@jenn.fyi/ui/components/carousel";
-import { ScrollArea } from "@jenn.fyi/ui/components/scroll-area";
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipTrigger,
-} from "@jenn.fyi/ui/components/tooltip";
-import { GithubLogoIcon } from "@phosphor-icons/react";
 import React from "react";
 import { useContent } from "./ContentContext";
 import { Project } from "./Project";
@@ -22,9 +14,9 @@ import { Project } from "./Project";
 export const Portfolio = () => {
 	const { projects } = useContent();
 	return (
-		<section className="p-4 min-h-full snap-start flex flex-col">
-			<h2 className="text-2xl font-bold p-1 pb-2">Projects I&apos;ve done</h2>
-			<div className="grow flex justify-center items-center">
+		<section id="portfolio" className="min-h-screen snap-start flex flex-col">
+			<h2 className="text-2xl font-bold mx-2 mb-4">Projects I&apos;ve done</h2>
+			<div className="grow flex justify-center">
 				<div className="w-full max-w-4xl h-[80vh]">
 					<Carousel className="">
 						<CarouselContent className="h-full">

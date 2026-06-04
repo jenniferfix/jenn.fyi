@@ -4,7 +4,7 @@ My name is Jennifer Fix, she/her. I'm from Alberta in the great white north.
 
 I am a self-taught full stack web developer. I work primarily with Typescript and React.
 
-I'm a Journeyperson Electrician since 2019 with the Red Seal Endorsement (which licenses me to work across<sup>\*</sup> Canada).
+I'm a Journeyperson Electrician since 2019 with the Red Seal Endorsement (which licenses me to work across<sub>\*</sub> Canada).
 
 I worked on a lot of various new build, maintenance and renovations on project types including: public schools, medical offices, warehouses, machine shops, oil/gas.
 
