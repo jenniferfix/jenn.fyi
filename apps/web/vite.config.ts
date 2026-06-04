@@ -15,7 +15,7 @@ const config = defineConfig({
 		],
 	},
 	plugins: [
-		nitro(),
+		nitro({ publicAssets: [{ baseURL: "/", dir: "public", maxAge: 2592000 }] }), // one month in seconds
 		viteTsConfigPaths({
 			projects: ["./tsconfig.json"],
 		}),
