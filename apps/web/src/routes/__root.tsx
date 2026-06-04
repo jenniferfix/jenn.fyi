@@ -11,6 +11,7 @@ import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { appStrings } from "@/lib/constants";
 import { homeSearchParams } from "@/lib/schema";
+import { PostHogProvider } from "../lib/posthog";
 import "../globals.css";
 
 const isProd = process.env.NODE_ENV === "production";
@@ -170,21 +171,23 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<ContentContextProvider>
-					<ThemeProvider defaultTheme="dark" storageKey="theme">
-						<FloatingTheme />
-						{children}
-						<Suspense fallback={null}>
-							<Toaster />
-							<MailForm
-								show={!!showContactForm}
-								onShowChange={handleMailFormShowChange}
-							/>
-						</Suspense>
-					</ThemeProvider>
-					{!isProd && <DevTools />}
-				</ContentContextProvider>
-				<Scripts />
+				<PostHogProvider>
+					<ContentContextProvider>
+						<ThemeProvider defaultTheme="dark" storageKey="theme">
+							<FloatingTheme />
+							{children}
+							<Suspense fallback={null}>
+								<Toaster />
+								<MailForm
+									show={!!showContactForm}
+									onShowChange={handleMailFormShowChange}
+								/>
+							</Suspense>
+						</ThemeProvider>
+						{!isProd && <DevTools />}
+					</ContentContextProvider>
+					<Scripts />
+				</PostHogProvider>
 			</body>
 		</html>
 	);
