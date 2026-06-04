@@ -40,12 +40,14 @@
 		"@types/react-dom": "^19.2.3",
 		"eslint": "^9.39.2",
 		"tailwindcss": "^4.1.18",
-		"typescript": "^5.9.3"
+		"typescript": "^5.9.3",
+		"vite": "^7.3.3"
 	},
 	"exports": {
 		"./globals.css": "./src/styles/globals.css",
 		"./lib/*": "./src/lib/*.ts",
 		"./components/*": "./src/components/*.tsx",
+		"./build/*": "./src/build/*.ts",
 		"./icons/*": "./src/icons/*.ts",
 		"./hooks/*": "./src/hooks/*.ts"
 	}

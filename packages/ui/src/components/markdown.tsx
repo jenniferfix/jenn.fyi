@@ -19,7 +19,7 @@ type MarkdownElementProps<T extends keyof React.JSX.IntrinsicElements> =
 		node?: unknown;
 	};
 
-const markdownComponents: Components = {
+export const markdownComponents: Components = {
 	h1: ({ node: _node, ...props }: MarkdownElementProps<"h1">) => (
 		<H1 {...props} />
 	),
@@ -75,7 +75,7 @@ const markdownComponents: Components = {
 	),
 };
 
-const rehypePlugins = [rehypeRaw];
+export const rehypePlugins = [rehypeRaw];
 
 export const Markdown = ({ children }: MarkdownProps) => {
 	return (
