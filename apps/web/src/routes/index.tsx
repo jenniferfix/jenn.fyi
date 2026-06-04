@@ -27,7 +27,7 @@ function RouteComponent() {
 	return (
 		<main id="main">
 			<Hero />
-			<MarkdownPage title="Bio" content={biohtml} />
+			<MarkdownPage content={biohtml} />
 			<Portfolio />
 			<MarkdownPage title="Resume" content={resumehtml} />
 			<TechStack />
