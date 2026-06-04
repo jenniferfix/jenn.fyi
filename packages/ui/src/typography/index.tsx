@@ -263,7 +263,7 @@ export function Superscript({
 	...props
 }: React.ComponentProps<"sup">) {
 	return (
-		<sup className={cn("align-super text-xs", className)} {...props}>
+		<sup className={cn("text-sm", className)} {...props}>
 			{children}
 		</sup>
 	);
@@ -274,7 +274,7 @@ export function Subscript({
 	...props
 }: React.ComponentProps<"sub">) {
 	return (
-		<sub className={cn("align-sub text-xs", className)} {...props}>
+		<sub className={cn("text-sm", className)} {...props}>
 			{children}
 		</sub>
 	);
