@@ -24,8 +24,9 @@ const Toaster = lazy(() =>
 	})),
 );
 
-const socialImg = "/images/social_img_1200x630.webp";
-const twitterImg = "/images/social_img_1200x675.webp";
+const url = `https://${appStrings.APP_DOMAIN}/`;
+const socialImg = `${url}images/social_img_1200x630.webp`;
+const twitterImg = `${url}images/social_img_1200x675.webp`;
 
 export const Route = createRootRoute({
 	validateSearch: homeSearchParams,
