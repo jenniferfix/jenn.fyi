@@ -1,6 +1,5 @@
-import { Markdown } from "@jenn.fyi/ui/components/markdown";
 import { ScrollArea } from "@jenn.fyi/ui/components/scroll-area";
-import bio from "../../data/bio.md?raw";
+import bio from "../../data/bio.md?html";
 
 export const Bio = () => {
 	return (
@@ -8,9 +7,7 @@ export const Bio = () => {
 			<div className="grow flex flex-col justify-center items-center">
 				<div className="h-[85vh] flex flex-col max-w-4xl">
 					<ScrollArea className="h-1 grow">
-						<div className="mr-8">
-							<Markdown>{bio}</Markdown>
-						</div>
+						<div className="mr-8" dangerouslySetInnerHTML={{ __html: bio }} />
 					</ScrollArea>
 				</div>
 			</div>

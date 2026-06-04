@@ -1,3 +1,4 @@
+import { staticMarkdown } from "@jenn.fyi/ui/build/static-markdown";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
@@ -16,6 +17,7 @@ const config = defineConfig({
 	},
 	plugins: [
 		nitro({ publicAssets: [{ baseURL: "/", dir: "public", maxAge: 2592000 }] }), // one month in seconds
+		staticMarkdown(),
 		viteTsConfigPaths({
 			projects: ["./tsconfig.json"],
 		}),

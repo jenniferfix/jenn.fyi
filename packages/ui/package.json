@@ -45,6 +45,9 @@
 	"exports": {
 		"./globals.css": "./src/styles/globals.css",
 		"./lib/*": "./src/lib/*.ts",
+		"./build/*": "./src/build/*.ts",
+		"./typography/*": "./src/typography/*.ts",
+		"./components/markdown-renderer": "./src/components/markdown-renderer.ts",
 		"./components/*": "./src/components/*.tsx",
 		"./icons/*": "./src/icons/*.ts",
 		"./hooks/*": "./src/hooks/*.ts"
