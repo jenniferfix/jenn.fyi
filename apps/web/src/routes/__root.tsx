@@ -8,6 +8,7 @@ import { lazy, Suspense, useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
 import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
+import { appStrings } from "@/lib/constants";
 import { homeSearchParams } from "@/lib/schema";
 import "../globals.css";
 
@@ -22,6 +23,9 @@ const Toaster = lazy(() =>
 		default: module.Toaster,
 	})),
 );
+
+const socialImg = "/images/social_img_1200x630.webp";
+const twitterImg = "/images/social_img_1200x675.webp";
 
 export const Route = createRootRoute({
 	validateSearch: homeSearchParams,
@@ -68,12 +72,49 @@ export const Route = createRootRoute({
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "Jennifer's Home on the Internet",
+				title: appStrings.APP_TITLE,
 			},
 			{
 				name: "description",
-				content:
-					"Jennifer's Home on the Internet. Jenn is a full stack developer working primarily with Typescript and React",
+				content: appStrings.APP_DESCRIPTION,
+			},
+			// Social media opengraph https://ogp.me/
+			// https://css-tricks.com/essential-meta-tags-social-media/
+			{
+				property: "og:title",
+				content: appStrings.APP_TITLE,
+			},
+			{
+				property: "og:description",
+				content: appStrings.APP_DESCRIPTION,
+			},
+			{
+				property: "og:type",
+				content: "website",
+			},
+			{
+				property: "og:url",
+				content: `https://${appStrings.APP_DOMAIN}/`,
+			},
+			{
+				property: "og:image",
+				content: socialImg,
+			},
+			{
+				name: "twitter:title",
+				content: appStrings.APP_TITLE,
+			},
+			{
+				name: "twitter:image",
+				content: twitterImg,
+			},
+			{
+				name: "twitter:description",
+				content: appStrings.APP_DESCRIPTION,
+			},
+			{
+				name: "twitter:card",
+				content: "summary_large_image",
 			},
 		],
 		links: [
