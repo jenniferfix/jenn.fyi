@@ -1,17 +1,27 @@
-import { Toaster } from "@jenn.fyi/ui/components/sonner";
 import {
 	createRootRoute,
 	ErrorComponent,
 	HeadContent,
 	Scripts,
 } from "@tanstack/react-router";
-import { useCallback } from "react";
+import { lazy, Suspense, useCallback } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
 import { FloatingTheme } from "@/components/FloatingTheme";
-import { MailForm } from "@/components/MailForm";
 import { ThemeProvider } from "@/components/theme-provider";
 import { homeSearchParams } from "@/lib/schema";
 import "../globals.css";
+
+const MailForm = lazy(() =>
+	import("@/components/MailForm").then((module) => ({
+		default: module.MailForm,
+	})),
+);
+
+const Toaster = lazy(() =>
+	import("@jenn.fyi/ui/components/sonner").then((module) => ({
+		default: module.Toaster,
+	})),
+);
 
 export const Route = createRootRoute({
 	validateSearch: homeSearchParams,
@@ -119,11 +129,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 					<ThemeProvider defaultTheme="dark" storageKey="theme">
 						<FloatingTheme />
 						{children}
-						<Toaster />
-						<MailForm
-							show={!!showContactForm}
-							onShowChange={handleMailFormShowChange}
-						/>
+						<Suspense fallback={null}>
+							<Toaster />
+							<MailForm
+								show={!!showContactForm}
+								onShowChange={handleMailFormShowChange}
+							/>
+						</Suspense>
 					</ThemeProvider>
 				</ContentContextProvider>
 				<Scripts />
