@@ -12,7 +12,7 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { usePostHog } from "@posthog/react";
 import React from "react";
 import { toast } from "sonner";
-import { onSubmitHandler } from "@/actions/mail";
+import { sendEmail } from "@/actions/mail";
 import { formSchema } from "@/lib/schema";
 
 export interface MailFormProps {
@@ -24,6 +24,8 @@ export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 	const [verified, setVerified] = React.useState(false);
 	const [message, setMessage] = React.useState("");
 	const posthog = usePostHog();
+
+	const posthogId = posthog.get_distinct_id();
 
 	const form = useAppForm({
 		defaultValues: {
@@ -39,7 +41,7 @@ export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 		onSubmit: async ({ value }) => {
 			try {
 				posthog?.capture("sending_email");
-				const res = await onSubmitHandler({ data: value });
+				const res = await sendEmail({ data: { ...value, posthogId } });
 				setMessage(res.message);
 			} catch (error) {
 				posthog?.capture("email_send_error");

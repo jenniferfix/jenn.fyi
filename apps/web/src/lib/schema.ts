@@ -97,6 +97,7 @@ export const formSchema = z.object({
 		.string()
 		.trim()
 		.min(1, { error: "Please complete verification" }),
+	posthogId: z.string().optional(),
 });
 
 export const homeSearchParams = z.object({
