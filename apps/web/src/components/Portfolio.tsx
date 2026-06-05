@@ -9,12 +9,13 @@ import {
 } from "@jenn.fyi/ui/components/carousel";
 import React from "react";
 import { useContent } from "./ContentContext";
+import { Section } from "./home/Section";
 import { Project } from "./Project";
 
 export const Portfolio = () => {
 	const { projects } = useContent();
 	return (
-		<section id="portfolio" className="min-h-screen snap-start flex flex-col">
+		<Section id="portfolio" className="flex-col">
 			<h2 className="text-2xl font-bold mx-2 mb-4">Projects I&apos;ve done</h2>
 			<div className="grow flex justify-center">
 				<div className="w-full max-w-4xl h-[80vh]">
@@ -33,6 +34,6 @@ export const Portfolio = () => {
 					</Carousel>
 				</div>
 			</div>
-		</section>
+		</Section>
 	);
 };

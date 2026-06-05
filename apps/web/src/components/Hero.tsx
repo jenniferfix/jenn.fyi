@@ -1,4 +1,5 @@
 import React from "react";
+import { Section } from "./home/Section";
 import { JenniferAvatar } from "./JenniferAvatar";
 import { Socials } from "./Socials";
 
@@ -36,7 +37,7 @@ const Typer = ({ text, delay }: { text: string; delay: number }) => {
 
 export const Hero = () => {
 	return (
-		<section id="hero" className="herosection">
+		<Section id="hero" className="herosection">
 			<div className="">
 				<figure className="">
 					<JenniferAvatar />
@@ -52,6 +53,6 @@ export const Hero = () => {
 					<Socials />
 				</div>
 			</div>
-		</section>
+		</Section>
 	);
 };

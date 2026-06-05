@@ -1,6 +1,6 @@
 export const appStrings = {
-	APP_TITLE: "Jennifers's home on the web",
+	APP_TITLE: "Jennifer's home on the web",
 	APP_DESCRIPTION:
-		"Jennifer's Home on the Internet. Jenn is a full stack developer working primarily with Typescript and React",
+		"Personal portfolio of Jennifer Fix. Jenn is a full stack developer working primarily with Typescript and React. She is open to work.",
 	APP_DOMAIN: "jenn.fyi",
 };
