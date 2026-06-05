@@ -7,10 +7,10 @@ export const PostHogProvider = ({
 }) => {
 	return (
 		<PostHog
-			apiKey={process.env.VITE_POSTHOG_PROJECT_TOKEN!}
+			apiKey={import.meta.env.VITE_POSTHOG_PROJECT_TOKEN!}
 			options={{
-				api_host: process.env.VITE_POSTHOG_API_HOST,
-				ui_host: process.env.VITE_POSTHOG_UI_HOST,
+				api_host: import.meta.env.VITE_POSTHOG_API_HOST,
+				ui_host: import.meta.env.VITE_POSTHOG_UI_HOST,
 			}}
 			children={children}
 		/>
