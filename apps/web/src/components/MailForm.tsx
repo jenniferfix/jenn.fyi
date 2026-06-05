@@ -9,6 +9,7 @@ import {
 } from "@jenn.fyi/ui/components/dialog";
 import { useAppForm } from "@jenn.fyi/ui/components/form";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { usePostHog } from "@posthog/react";
 import React from "react";
 import { toast } from "sonner";
 import { onSubmitHandler } from "@/actions/mail";
@@ -22,6 +23,7 @@ export interface MailFormProps {
 export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 	const [verified, setVerified] = React.useState(false);
 	const [message, setMessage] = React.useState("");
+	const posthog = usePostHog();
 
 	const form = useAppForm({
 		defaultValues: {
@@ -36,9 +38,11 @@ export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 		},
 		onSubmit: async ({ value }) => {
 			try {
+				posthog?.capture("sending_email");
 				const res = await onSubmitHandler({ data: value });
 				setMessage(res.message);
 			} catch (error) {
+				posthog?.capture("email_send_error");
 				console.log("handler fail");
 				console.error(error);
 			}
@@ -64,9 +68,13 @@ export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 	const handleOpenChange = React.useCallback(
 		(open: boolean) => {
 			if (!open) {
+				posthog?.capture("email_form_closed");
 				form.setFieldValue("cf-turnstile-response", "");
 				setVerified(false);
 				setMessage("");
+			}
+			if (open) {
+				posthog?.capture("email_form_opened");
 			}
 			onShowChange?.(open);
 		},
@@ -166,16 +174,19 @@ export const MailForm = ({ show = false, onShowChange }: MailFormProps) => {
 										<Turnstile
 											siteKey={siteKey}
 											onError={(error) => {
+												posthog?.capture("turnstile_error", { error });
 												console.error("Turnstile error:", error);
 												toast.error(
 													"CAPTCHA verification failed. Please try again.",
 												);
 											}}
 											onExpire={() => {
+												posthog?.capture("turnstile_expired");
 												setVerified(false);
 												field.handleChange("");
 											}}
 											onSuccess={(token) => {
+												posthog?.capture("turnstile_success");
 												setVerified(true);
 												field.handleChange(token);
 											}}
