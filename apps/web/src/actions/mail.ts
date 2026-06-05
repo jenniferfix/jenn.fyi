@@ -1,6 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
 import { Resend } from "resend";
-import { z } from "zod";
 import { EmailTemplate } from "@/components/email-template";
 import { formSchema } from "@/lib/schema";
 
@@ -26,8 +25,6 @@ export const onSubmitHandler = createServerFn({ method: "POST" })
 			return data.success;
 		};
 
-		// console.log(ctx.data)
-
 		if (!parsed.success) {
 			return {
 				message: "Invalid form data",
@@ -48,8 +45,8 @@ export const onSubmitHandler = createServerFn({ method: "POST" })
 		}
 
 		try {
-			const { data, error } = await resend.emails.send({
-				from: `${parsed.data.name} <no-reply@jenn.fyi>`,
+			const { error } = await resend.emails.send({
+				from: `${parsed.data.name} <no-reply@callcat.io>`,
 				to: ["jenniferashleyfix@gmail.com"],
 				subject: `WebForm: ${parsed.data.subject}`,
 				react: EmailTemplate({
@@ -67,7 +64,7 @@ export const onSubmitHandler = createServerFn({ method: "POST" })
 				};
 			}
 		} catch (error) {
-			throw new Error("Error 500");
+			console.error(error);
 		}
 
 		return { message: "Sent" };

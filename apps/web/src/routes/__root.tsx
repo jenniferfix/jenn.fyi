@@ -5,6 +5,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { lazy, Suspense, useCallback } from "react";
+import { ClientOnly } from "@/components/ClientOnly";
 import { ContentContextProvider } from "@/components/ContentContext";
 import { DevTools } from "@/components/devtools";
 import { FloatingTheme } from "@/components/FloatingTheme";
@@ -178,10 +179,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 							{children}
 							<Suspense fallback={null}>
 								<Toaster />
-								<MailForm
-									show={!!showContactForm}
-									onShowChange={handleMailFormShowChange}
-								/>
+								<ClientOnly>
+									<MailForm
+										show={!!showContactForm}
+										onShowChange={handleMailFormShowChange}
+									/>
+								</ClientOnly>
 							</Suspense>
 						</ThemeProvider>
 						{!isProd && <DevTools />}

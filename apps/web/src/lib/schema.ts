@@ -93,7 +93,10 @@ export const formSchema = z.object({
 	message: z.string().trim().min(1, {
 		message: "Hi, you rang?",
 	}),
-	"cf-turnstile-response": z.string().trim().optional(),
+	"cf-turnstile-response": z
+		.string()
+		.trim()
+		.min(1, { error: "Please complete verification" }),
 });
 
 export const homeSearchParams = z.object({
