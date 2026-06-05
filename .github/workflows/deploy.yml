@@ -77,7 +77,6 @@ jobs:
             IMAGE=${{ env.IMAGE_NAME }}:${{ github.sha }}
             TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
-            CDN_ORIGIN=${{ vars.CDN_ORIGIN }}
             EOF
 
             echo "${{ secrets.GHCR_READ_TOKEN }}" | docker login ghcr.io \
