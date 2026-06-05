@@ -35,6 +35,11 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          build-args: |
+            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
+            VITE_POSTHOG_PROJECT_TOKEN=${{ vars.VITE_POSTHOG_PROJECT_TOKEN }}
+            VITE_POSTHOG_API_HOST=${{ vars.VITE_POSTHOG_API_HOST }}
+            VITE_POSTHOG_UI_HOST=${{ vars.VITE_POSTHOG_UI_HOST }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -71,12 +76,8 @@ jobs:
             cat > .env <<'EOF'
             IMAGE=${{ env.IMAGE_NAME }}:${{ github.sha }}
             TURNSTILE_SECRET_KEY=${{ secrets.TURNSTILE_SECRET_KEY }}
-            VITE_TURNSTILE_SITE_KEY=${{ secrets.VITE_TURNSTILE_SITE_KEY }}
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
             CDN_ORIGIN=${{ vars.CDN_ORIGIN }}
-            VITE_POSTHOG_PROJECT_TOKEN=${{ vars.VITE_POSTHOG_PROJECT_TOKEN }}
-            VITE_POSTHOG_API_HOST=${{ vars.VITE_POSTHOG_API_HOST }}
-            VITE_POSTHOG_UI_HOST=${{ vars.VITE_POSTHOG_UI_HOST }}
             EOF
 
             echo "${{ secrets.GHCR_READ_TOKEN }}" | docker login ghcr.io \

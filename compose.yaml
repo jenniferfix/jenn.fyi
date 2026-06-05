@@ -8,6 +8,7 @@ services:
       PORT: 3000
       TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
       RESEND_API_KEY: ${RESEND_API_KEY}
+      CDN_ORIGIN: ${CDN_ORIGIN}
     networks:
       - app_net
 
