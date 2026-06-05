@@ -209,8 +209,3 @@
 	/*color: transparent;*/
 	/*background-clip: text;*/
 }
-
-html::-webkit-scrollbar {
-	background: red;
-	width: 20px;
-}
