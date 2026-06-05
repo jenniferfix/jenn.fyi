@@ -12,7 +12,7 @@ import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { appStrings } from "@/lib/constants";
 import { homeSearchParams } from "@/lib/schema";
-import { PostHogProvider } from "../lib/posthog";
+import { PostHogProvider } from "../lib/posthog/client";
 import "../globals.css";
 
 const isProd = process.env.NODE_ENV === "production";
