@@ -10,6 +10,11 @@ import { ContentContextProvider } from "@/components/ContentContext";
 import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { appStrings } from "@/lib/constants";
+import {
+	criticalCss,
+	firaCodeFontUrl,
+	spaceGroteskFontUrl,
+} from "@/styles/critical";
 import { PostHogProvider } from "../lib/posthog/client";
 import "../globals.css";
 import { DevTools } from "@/components/devtools";
@@ -30,35 +35,7 @@ export const Route = createRootRoute({
 	head: () => ({
 		styles: [
 			{
-				children: `.herosection {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	scroll-snap-align: start;
-}
-.herosection figure {
-	display: flex;
-	justify-content: center;
-	margin-bottom: calc(var(--spacing) * 8);
-	/* flex justify-center mb-8 md:mb-0 md:my-auto md:mr-8 */
-}
-.herosection > div:first-child {
-	display: flex;
-	flex-direction: column;
-	/* flex flex-col md:flex-row */
-}
-
-@media (width >= 48rem) {
-	.herosection > div:first-of-type {
-		flex-direction: row;
-	}
-	.herosection figure {
-		margin-bottom: 0;
-		margin-block: auto;
-		margin-right: calc(var(--spacing) * 8);
-	}
-}`,
+				children: criticalCss,
 			},
 		],
 		meta: [
@@ -116,6 +93,20 @@ export const Route = createRootRoute({
 			},
 		],
 		links: [
+			{
+				rel: "preload",
+				as: "font",
+				type: "font/woff2",
+				href: spaceGroteskFontUrl,
+				crossOrigin: "anonymous",
+			},
+			{
+				rel: "preload",
+				as: "font",
+				type: "font/woff2",
+				href: firaCodeFontUrl,
+				crossOrigin: "anonymous",
+			},
 			{ rel: "icon", href: "/favicon.ico", sizes: "any" },
 			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 		],

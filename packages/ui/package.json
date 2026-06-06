@@ -10,8 +10,6 @@
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.5.0",
-		"@fontsource-variable/space-grotesk": "^5.2.10",
-		"@fontsource/fira-code": "^5.2.7",
 		"@phosphor-icons/react": "^2.1.10",
 		"@tanstack/react-form": "^1.32.0",
 		"class-variance-authority": "^0.7.1",
