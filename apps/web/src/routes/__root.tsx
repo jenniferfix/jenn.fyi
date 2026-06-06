@@ -4,24 +4,16 @@ import {
 	HeadContent,
 	Scripts,
 } from "@tanstack/react-router";
-import { lazy, Suspense, useCallback } from "react";
-import { ClientOnly } from "@/components/ClientOnly";
+import { lazy, Suspense } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
-import { DevTools } from "@/components/devtools";
 import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { appStrings } from "@/lib/constants";
-import { homeSearchParams } from "@/lib/schema";
 import { PostHogProvider } from "../lib/posthog/client";
 import "../globals.css";
+import { DevTools } from "@/components/devtools";
 
 const isProd = process.env.NODE_ENV === "production";
-
-const MailForm = lazy(() =>
-	import("@/components/MailForm").then((module) => ({
-		default: module.MailForm,
-	})),
-);
 
 const Toaster = lazy(() =>
 	import("@jenn.fyi/ui/components/sonner").then((module) => ({
@@ -34,7 +26,6 @@ const socialImg = `${url}images/social_img_1200x630.webp`;
 const twitterImg = `${url}images/social_img_1200x675.webp`;
 
 export const Route = createRootRoute({
-	validateSearch: homeSearchParams,
 	head: () => ({
 		styles: [
 			{
@@ -139,29 +130,6 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-	const { path, useNavigate, useParams, useSearch } = Route;
-	const { showContactForm } = useSearch();
-	const navigate = useNavigate();
-	const params = useParams();
-
-	const handleMailFormShowChange = useCallback(
-		(show: boolean) => {
-			if (show)
-				navigate({
-					to: path,
-					search: { showContactForm: true },
-					params,
-				});
-			else
-				navigate({
-					to: path,
-					search: {},
-					params,
-				});
-		},
-		[navigate, params],
-	);
-
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>
@@ -179,12 +147,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 							{children}
 							<Suspense fallback={null}>
 								<Toaster />
-								<ClientOnly>
-									<MailForm
-										show={!!showContactForm}
-										onShowChange={handleMailFormShowChange}
-									/>
-								</ClientOnly>
 							</Suspense>
 						</ThemeProvider>
 						{!isProd && <DevTools />}

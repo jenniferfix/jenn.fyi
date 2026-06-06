@@ -89,8 +89,7 @@ export const sendEmail = createServerFn({ method: "POST" })
 					},
 				});
 				return {
-					message:
-						"Email send error, please try again. Error: " + error.message,
+					message: `Email send error, please try again. Error: ${error.message}`,
 				};
 			}
 
@@ -102,11 +101,16 @@ export const sendEmail = createServerFn({ method: "POST" })
 				},
 			});
 		} catch (error) {
-			// TODO: Better error message
+			let message: string | undefined;
+			let name: string | undefined;
+			if (error instanceof Error) {
+				name = error.name;
+				message = error.message;
+			}
 			posthog.capture({
 				event: "email_send.server_fn.error",
 				distinctId: parsed.data.posthogId,
-				properties: {},
+				properties: { name, message },
 			});
 			console.error(error);
 		}

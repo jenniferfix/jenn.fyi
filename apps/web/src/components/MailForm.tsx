@@ -1,24 +1,5 @@
-import { Button, buttonVariants } from "@jenn.fyi/ui/components/button";
-import {
-	Dialog,
-	DialogClose,
-	DialogContent,
-	DialogDescription,
-	DialogHeader,
-	DialogTitle,
-} from "@jenn.fyi/ui/components/dialog";
-import {
-	Drawer,
-	DrawerClose,
-	DrawerContent,
-	DrawerDescription,
-	DrawerFooter,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "@jenn.fyi/ui/components/drawer";
+import { Button } from "@jenn.fyi/ui/components/button";
 import { useAppForm } from "@jenn.fyi/ui/components/form";
-import { useMediaQuery } from "@jenn.fyi/ui/hooks/use-media-query";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { usePostHog } from "@posthog/react";
 import React from "react";
@@ -38,6 +19,7 @@ export const MailFormInner = ({
 	const [verified, setVerified] = React.useState(false);
 	const [message, setMessage] = React.useState("");
 	const posthog = usePostHog();
+	const turnstileRef = React.useRef(null);
 
 	const posthogId = posthog.get_distinct_id();
 
@@ -59,13 +41,10 @@ export const MailFormInner = ({
 				setMessage(res.message);
 			} catch (error) {
 				posthog?.capture("email_send_error");
-				console.log("handler fail");
 				console.error(error);
 			}
-			//  TODO: Finish getting all message and error responses back in
 		},
 	});
-	const formRef = React.useRef<HTMLFormElement>(null);
 
 	const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
@@ -81,29 +60,16 @@ export const MailFormInner = ({
 		}
 	}, [message, reset]);
 
-	const handleOpenChange = React.useCallback(
-		(open: boolean) => {
-			if (!open) {
-				posthog?.capture("email_form_closed");
-				form.setFieldValue("cf-turnstile-response", "");
-				setVerified(false);
-				setMessage("");
-			}
-			onShowChange?.(open);
-		},
-		[form, onShowChange, posthog.capture],
-	);
-
 	return (
-		<div>
-			<form
-				ref={formRef}
-				onSubmit={(e) => {
-					e.preventDefault();
-					e.stopPropagation();
-					form.handleSubmit();
-				}}
-			>
+		<form
+			className="flex flex-col gap-5"
+			onSubmit={(e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				form.handleSubmit();
+			}}
+		>
+			<form.FieldGroup>
 				<form.AppField
 					name="name"
 					children={(field) => (
@@ -155,101 +121,69 @@ export const MailFormInner = ({
 						</field.Field>
 					)}
 				/>
-				<form.AppField
-					name="message"
-					children={(field) => (
-						<field.Field>
-							<field.Label htmlFor={field.name}>Message</field.Label>
-							<field.Textarea
-								placeholder="How can I help you?"
-								value={field.state.value}
-								onBlur={field.handleBlur}
-								onChange={(e) => field.handleChange(e.target.value)}
-							/>
-							{field.state.meta.errors.length ? (
-								<em>{field.state.meta.errors.join(",")}</em>
-							) : null}
-						</field.Field>
-					)}
-				/>
-				<form.AppField
-					name="cf-turnstile-response"
-					children={(field) => (
-						<field.Field className="flex justify-center items-center mx-auto w-full">
-							{siteKey ? (
-								<div className="flex justify-center w-full mt-4">
-									<Turnstile
-										siteKey={siteKey}
-										onError={(error) => {
-											posthog?.capture("turnstile_error", { error });
-											console.error("Turnstile error:", error);
-											toast.error(
-												"CAPTCHA verification failed. Please try again.",
-											);
-										}}
-										onExpire={() => {
-											posthog?.capture("turnstile_expired");
-											setVerified(false);
-											field.handleChange("");
-										}}
-										onSuccess={(token) => {
-											posthog?.capture("turnstile_success");
-											setVerified(true);
-											field.handleChange(token);
-										}}
-									/>
-								</div>
-							) : (
-								<em>CAPTCHA is not configured.</em>
-							)}
-						</field.Field>
-					)}
-				/>
-				<div className="flex justify-end gap-2 mt-2">
-					<Button
-						className="w-full"
-						type="submit"
-						variant="default"
-						disabled={!verified}
-					>
-						Send
-					</Button>
-				</div>
-			</form>
-		</div>
+			</form.FieldGroup>
+			<form.AppField
+				name="message"
+				children={(field) => (
+					<field.Field>
+						<field.Label htmlFor={field.name}>Message</field.Label>
+						<field.Textarea
+							rows={5}
+							placeholder="How can I help you?"
+							value={field.state.value}
+							onBlur={field.handleBlur}
+							onChange={(e) => field.handleChange(e.target.value)}
+						/>
+						{field.state.meta.errors.length ? (
+							<em>{field.state.meta.errors.join(",")}</em>
+						) : null}
+					</field.Field>
+				)}
+			/>
+			<form.AppField
+				name="cf-turnstile-response"
+				children={(field) => (
+					<field.Field className="flex justify-center items-center mx-auto w-full">
+						{siteKey ? (
+							<div className="flex justify-center w-full mt-4">
+								<Turnstile
+									ref={turnstileRef}
+									siteKey={siteKey}
+									onError={(error) => {
+										posthog?.capture("turnstile_error", { error });
+										console.error("Turnstile error:", error);
+										toast.error(
+											"CAPTCHA verification failed. Please try again.",
+										);
+									}}
+									onExpire={() => {
+										posthog?.capture("turnstile_expired");
+										setVerified(false);
+										field.handleChange("");
+									}}
+									onSuccess={(token) => {
+										posthog?.capture("turnstile_success");
+										setVerified(true);
+										field.handleChange(token);
+									}}
+								/>
+							</div>
+						) : (
+							<em>CAPTCHA is not configured.</em>
+						)}
+					</field.Field>
+				)}
+			/>
+			<div className="flex justify-end gap-2 mt-2">
+				<Button
+					className="w-full"
+					type="submit"
+					variant="default"
+					disabled={!verified}
+				>
+					Send
+				</Button>
+			</div>
+		</form>
 	);
-};
-
-export const MailForm = ({ show, onShowChange }: MailFormProps) => {
-	const isDesktop = useMediaQuery("(min-width: 768px)");
-	if (isDesktop) {
-		return (
-			<Dialog open={show} onOpenChange={onShowChange}>
-				<DialogContent className="sm:max-w-106">
-					<DialogHeader>
-						<DialogTitle>Email Jennifer</DialogTitle>
-						<DialogDescription>Send me an email</DialogDescription>
-					</DialogHeader>
-					<MailFormInner onShowChange={onShowChange} />
-				</DialogContent>
-			</Dialog>
-		);
-	} else {
-		return (
-			<Drawer open={show} onOpenChange={onShowChange}>
-				<DrawerContent>
-					<DrawerHeader>
-						<DrawerTitle>Email Jennifer</DrawerTitle>
-						<DrawerDescription>Send me an email</DrawerDescription>
-					</DrawerHeader>
-					<MailFormInner onShowChange={onShowChange} />
-					<DrawerFooter>
-						<DrawerClose asChild>
-							<Button variant="outline">Cancel</Button>
-						</DrawerClose>
-					</DrawerFooter>
-				</DrawerContent>
-			</Drawer>
-		);
-	}
 };

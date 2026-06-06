@@ -4,7 +4,6 @@ import { AtIcon, GithubLogoIcon, XLogoIcon } from "@phosphor-icons/react";
 import { usePostHog } from "@posthog/react";
 import { useNavigate } from "@tanstack/react-router";
 import { useContent } from "./ContentContext";
-import { MailForm } from "./MailForm";
 
 const iconClassName = "size-9 sm:size-10";
 
@@ -55,7 +54,12 @@ export const Socials = () => {
 				variant="ghost"
 				aria-label="Email"
 				className="size-18 cursor-pointer sm:size-16"
-				onClick={() => navigate({ to: "/", search: { showContactForm: true } })}
+				onClick={() => {
+					navigate({
+						to: "/send-email",
+						mask: { to: "/" },
+					});
+				}}
 			>
 				<AtIcon className={iconClassName} />
 			</Button>
