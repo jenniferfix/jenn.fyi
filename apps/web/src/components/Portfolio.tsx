@@ -16,7 +16,9 @@ export const Portfolio = () => {
 	const { projects } = useContent();
 	return (
 		<Section id="portfolio" className="flex-col">
-			<h2 className="text-2xl font-bold mx-2 mb-4">Projects I&apos;ve done</h2>
+			<h2 className="text-2xl font-bold mx-4 mb-4 mt-2">
+				Projects I&apos;ve done
+			</h2>
 			<div className="grow flex justify-center">
 				<div className="w-full max-w-4xl h-[80vh]">
 					<Carousel className="">

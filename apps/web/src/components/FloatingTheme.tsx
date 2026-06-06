@@ -30,7 +30,7 @@ export const FloatingTheme = React.memo(() => {
 	return (
 		<div
 			className={cn(
-				"fixed top-4 lg:top-8 right-4 lg:right-8 transition-opacity duration-300",
+				"inline-block fixed top-6 lg:top-8 right-14 lg:right-16 transition-opacity duration-300",
 				show
 					? "opacity-100 pointer-events-auto"
 					: "opacity-0 pointer-events-none",

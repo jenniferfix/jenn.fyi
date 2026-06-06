@@ -50,7 +50,7 @@ function RouteComponent() {
 					if (!open) handleCloseDialog();
 				}}
 			>
-				<DialogContent className="sm:max-w-106">
+				<DialogContent>
 					<DialogHeader>
 						<DialogTitle>{appStrings.EMAIL_FORM_TITLE}</DialogTitle>
 						<DialogDescription>
@@ -81,7 +81,7 @@ function RouteComponent() {
 							handleClosed();
 						}
 					}}
-					className="max-w-full"
+					className="w-full max-w-lg mx-auto"
 				>
 					<DrawerHeader>
 						<DrawerTitle>{appStrings.EMAIL_FORM_TITLE}</DrawerTitle>

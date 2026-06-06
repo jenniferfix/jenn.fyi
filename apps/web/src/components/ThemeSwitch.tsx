@@ -1,5 +1,6 @@
 import { Label } from "@jenn.fyi/ui/components/label";
 import { Switch } from "@jenn.fyi/ui/components/switch";
+import { useMediaQuery } from "@jenn.fyi/ui/hooks/use-media-query";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import * as React from "react";
 import { useTheme } from "./theme-provider";
@@ -7,6 +8,7 @@ import { useTheme } from "./theme-provider";
 export function ThemeSwitch() {
 	const id = React.useId();
 	const { setTheme, theme } = useTheme();
+	const isDesktop = useMediaQuery("(min-width: 768px)");
 
 	const toggleTheme = React.useCallback(() => {
 		setTheme(theme === "dark" ? "light" : theme === "light" ? "dark" : "dark");
@@ -19,9 +21,10 @@ export function ThemeSwitch() {
 				aria-hidden="true"
 				className="cursor-pointer text-muted-foreground"
 			>
-				<MoonIcon data-theme={theme} className="size-8" />
+				<MoonIcon data-theme={theme} className="size-6 md:size-8" />
 			</Label>
 			<Switch
+				size={!isDesktop ? "sm" : undefined}
 				id={id}
 				checked={theme === "dark" ? false : true}
 				onCheckedChange={toggleTheme}
@@ -31,7 +34,7 @@ export function ThemeSwitch() {
 				aria-hidden="true"
 				className="cursor-pointer text-muted-foreground"
 			>
-				<SunIcon data-theme={theme} className="size-8" />
+				<SunIcon data-theme={theme} className="size-6 md:size-8" />
 			</Label>
 		</div>
 	);
