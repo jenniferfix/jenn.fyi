@@ -1,3 +1,4 @@
+import { useIsClient } from "@jenn.fyi/ui/hooks/use-is-client";
 import {
 	createRootRoute,
 	ErrorComponent,
@@ -130,6 +131,7 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+	const isClient = useIsClient();
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>
@@ -143,7 +145,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<PostHogProvider>
 					<ContentContextProvider>
 						<ThemeProvider defaultTheme="dark" storageKey="theme">
-							<FloatingTheme />
+							{isClient && <FloatingTheme />}
 							{children}
 							<Suspense fallback={null}>
 								<Toaster />
