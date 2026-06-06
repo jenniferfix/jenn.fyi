@@ -28,6 +28,9 @@ const config = defineConfig({
 		}),
 		viteReact(),
 	],
+	build: {
+		target: "esnext",
+	},
 });
 
 export default config;
