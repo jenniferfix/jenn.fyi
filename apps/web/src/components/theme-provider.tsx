@@ -1,3 +1,4 @@
+import { usePostHog } from "@posthog/react";
 import { ScriptOnce } from "@tanstack/react-router";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -41,9 +42,7 @@ function getResolvedTheme(theme: Theme): Exclude<Theme, "system"> {
 function applyTheme(theme: Theme) {
 	const root = document.documentElement;
 	root.classList.remove("light", "dark");
-
 	const resolved = getResolvedTheme(theme);
-
 	root.classList.add(resolved);
 	root.style.colorScheme = resolved;
 }
@@ -55,25 +54,27 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
 	const [theme, setThemeState] = useState<Theme>(defaultTheme);
 	const [mounted, setMounted] = useState(false);
+	const posthog = usePostHog();
 
 	useEffect(() => {
 		const stored = localStorage.getItem(storageKey);
-		setThemeState(
+		const intitalThemeState =
 			stored === "light" || stored === "dark" || stored === "system"
 				? stored
-				: defaultTheme,
-		);
+				: defaultTheme;
+		setThemeState(intitalThemeState);
 		setMounted(true);
-	}, [defaultTheme, storageKey]);
+		posthog.capture("theme_initial", { theme: intitalThemeState });
+	}, [defaultTheme, storageKey, posthog.capture]);
 
 	useEffect(() => {
 		if (!mounted) return;
 		applyTheme(theme);
-	}, [theme, mounted]);
+		posthog.capture("theme_change", { theme });
+	}, [theme, mounted, posthog.capture]);
 
 	useEffect(() => {
 		if (!mounted || theme !== "system") return;
-
 		const media = window.matchMedia("(prefers-color-scheme: dark)");
 		const onChange = () => applyTheme("system");
 		media.addEventListener("change", onChange);
