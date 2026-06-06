@@ -21,8 +21,8 @@
 		"node": ">=20"
 	},
 	"dependencies": {
-		"@fontsource-variable/fira-code": "^5.2.7",
 		"@fontsource-variable/space-grotesk": "^5.2.10",
+		"@fontsource/fira-code": "^5.2.7",
 		"sonner": "^2.0.7"
 	}
 }

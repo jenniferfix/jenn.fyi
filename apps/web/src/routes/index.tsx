@@ -1,5 +1,5 @@
 import { processor } from "@jenn.fyi/ui/lib/markdown";
-import { createFileRoute, useLocation } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Hero } from "@/components/Hero";
 import { MarkdownPage } from "@/components/MarkdownPage";

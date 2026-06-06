@@ -24,7 +24,7 @@ export function ThemeSwitch() {
 				<MoonIcon data-theme={theme} className="size-6 md:size-8" />
 			</Label>
 			<Switch
-				size={!isDesktop ? "sm" : undefined}
+				size={!isDesktop ? "sm" : "default"}
 				id={id}
 				checked={theme === "dark" ? false : true}
 				onCheckedChange={toggleTheme}
