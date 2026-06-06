@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { ContentContextProvider } from "@/components/ContentContext";
+import { DevTools } from "@/components/devtools";
 import { FloatingTheme } from "@/components/FloatingTheme";
 import { ThemeProvider } from "@/components/theme-provider";
 import { appStrings } from "@/lib/constants";
@@ -15,9 +16,8 @@ import {
 	firaCodeFontUrl,
 	spaceGroteskFontUrl,
 } from "@/styles/critical";
+import appCss from "../globals.css?url";
 import { PostHogProvider } from "../lib/posthog/client";
-import "../globals.css";
-import { DevTools } from "@/components/devtools";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -93,6 +93,10 @@ export const Route = createRootRoute({
 			},
 		],
 		links: [
+			{
+				rel: "stylesheet",
+				href: appCss,
+			},
 			{
 				rel: "preload",
 				as: "font",
