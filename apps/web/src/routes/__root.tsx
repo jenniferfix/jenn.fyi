@@ -1,3 +1,5 @@
+import firaCode from "@fontsource-variable/fira-code/wght.css?url";
+import spaceGrotesk from "@fontsource-variable/space-grotesk/wght.css?url";
 import {
 	createRootRoute,
 	ErrorComponent,
@@ -115,6 +117,13 @@ export const Route = createRootRoute({
 			},
 		],
 		links: [
+			{
+				rel: "preload",
+				as: "font",
+				href: spaceGrotesk,
+				crossOrigin: "anonymous",
+			},
+			{ rel: "preload", as: "font", href: firaCode, crossOrigin: "anonymous" },
 			{ rel: "icon", href: "/favicon.ico", sizes: "any" },
 			{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 		],
