@@ -9,7 +9,6 @@
 		"format": "turbo format",
 		"typecheck": "turbo typecheck"
 	},
-
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.15",
 		"prettier": "^3.8.1",
@@ -22,6 +21,8 @@
 		"node": ">=20"
 	},
 	"dependencies": {
+		"@fontsource-variable/fira-code": "^5.2.7",
+		"@fontsource-variable/space-grotesk": "^5.2.10",
 		"sonner": "^2.0.7"
 	}
 }
