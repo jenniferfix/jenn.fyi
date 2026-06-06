@@ -50,12 +50,13 @@ export const MailFormInner = ({
 
 	const reset = React.useCallback(() => {
 		form.reset();
+		setMessage("");
 		onShowChange?.(false);
-		toast("Message sent!");
 	}, [form, onShowChange]);
 
 	React.useEffect(() => {
 		if (message === "Sent") {
+			toast("Message sent!");
 			reset();
 		}
 	}, [message, reset]);

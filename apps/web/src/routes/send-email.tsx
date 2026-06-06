@@ -37,15 +37,17 @@ function RouteComponent() {
 		navigate({ to: "/" });
 	}, [navigate]);
 
+	const handleCloseDialog = React.useCallback(() => {
+		setOpen(false);
+		setTimeout(handleClosed, 200);
+	}, [handleClosed]);
+
 	if (isDesktop) {
 		return (
 			<Dialog
 				open={open}
 				onOpenChange={(open) => {
-					if (!open) {
-						setOpen(false);
-						setTimeout(handleClosed, 200);
-					}
+					if (!open) handleCloseDialog();
 				}}
 			>
 				<DialogContent className="sm:max-w-106">
@@ -57,9 +59,7 @@ function RouteComponent() {
 					</DialogHeader>
 					<MailFormInner
 						onShowChange={(open) => {
-							if (!open) {
-								handleClose();
-							}
+							if (!open) handleCloseDialog();
 						}}
 					/>
 				</DialogContent>
