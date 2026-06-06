@@ -13,6 +13,8 @@
 		"start": "node .output/server/index.mjs"
 	},
 	"dependencies": {
+		"@fontsource-variable/fira-code": "^5.2.7",
+		"@fontsource-variable/space-grotesk": "^5.2.10",
 		"@jenn.fyi/ui": "workspace:*",
 		"@marsidev/react-turnstile": "1.5.2",
 		"@phosphor-icons/react": "^2.1.10",

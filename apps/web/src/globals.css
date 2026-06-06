@@ -1,4 +1,6 @@
 @import "@jenn.fyi/ui/globals.css";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource/fira-code";
 
 .herosection {
 	display: flex;
