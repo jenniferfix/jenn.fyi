@@ -1,3 +1,8 @@
+{
+    email jenn@jenn.fyi
+    acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+}
+
 www.jenn.fyi {
 	redir https://jenn.fyi{uri} permanent
 }

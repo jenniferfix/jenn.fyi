@@ -9,26 +9,13 @@ services:
       TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
       RESEND_API_KEY: ${RESEND_API_KEY}
     networks:
-      - app_net
-
-  caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
-    depends_on:
-      - web
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    networks:
-      - app_net
+      default:
+      jennfyi_net:
+        aliases:
+          - jennfyi-web
 
 networks:
-  app_net:
+  jennfyi_net:
 
 volumes:
   caddy_data:
